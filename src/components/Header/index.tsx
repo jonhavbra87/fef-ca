@@ -6,7 +6,7 @@ function Header() {
     <header className="bg-red-500 w-full flex flex-wrap sticky justify-around align-middle font-bold">
         
         {/* Logo */}
-        <img src={Logo} alt="Noroff logo" className="w-20 h-full align-middle" />
+        <img src={Logo} alt="Noroff logo" className="w-20 h-full" />
 
         <Nav />
     </header>

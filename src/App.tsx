@@ -2,15 +2,14 @@ import "./index.css"
 
 import { Routes, Route } from "react-router-dom"
 import Layout from "./components/Layout";
+import Products from "./components/Products";
 
 
 function Home() {
   return <div className="flex-grow">Home</div>
 }
 
-function Products() {
-  return <div>Products</div>
-}
+
 
 
 function RouteNotFound() {
