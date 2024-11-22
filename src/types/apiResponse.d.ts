@@ -3,7 +3,12 @@ import { Product } from './product';
 
 export interface ApiResponse {
   data: Product[];
-  meta: {
+  meta: MetaData;
+}
+
+//Pagination.
+
+  export interface MetaData {
     isFirstPage: boolean;
     isLastPage: boolean;
     currentPage: number;
@@ -11,5 +16,4 @@ export interface ApiResponse {
     nextPage: number | null;
     pageCount: number;
     totalCount: number;
-  };
-}
+  }

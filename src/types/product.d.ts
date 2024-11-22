@@ -1,4 +1,4 @@
-// types/product.ts
+
 export interface Product {
   id: string; // Merk at `id` er en string basert på responsen
   title: string;
