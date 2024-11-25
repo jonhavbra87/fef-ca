@@ -1,4 +1,5 @@
 // components/Products/index.tsx
+import { BASE_API_URL } from '../../api/apiConfig';
 import useApi from '../../hooks/useApi';
 import { ApiResponse } from '../../types/apiResponse';
 import ProductCard from '../ProductCard';
@@ -6,9 +7,11 @@ import ProductCard from '../ProductCard';
 
 function Products() {
   // Bruker `useApi` hooken for å hente API-responsen med typen `ApiResponse`
-  const { data, isLoading, isError } = useApi<ApiResponse>(
-    'https://v2.api.noroff.dev/online-shop/'
-  );
+  const { data: product, isLoading, isError } = useApi<ApiResponse>(
+    `${BASE_API_URL}`
+);
+// Sjekk at `data` eksisterer og hent produktlisten fra `data.data`
+const products = product?.data;
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -18,8 +21,8 @@ function Products() {
     return <div>Error loading data.</div>;
   }
 
-  // Sjekk at `data` eksisterer og hent produktlisten fra `data.data`
-  const products = data?.data;
+  console.log('products from product page', products);
+  
 
   return (
     <div>
