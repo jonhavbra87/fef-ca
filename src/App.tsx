@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Products from './components/Products';
 import ProductDetails from './components/ProductDetails';
+import Contact from './components/Contact';
 
 function Home() {
   return <div className="flex-grow">Home</div>;
@@ -21,6 +22,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="products" index element={<Products />} />
           <Route path="product/:id" element={<ProductDetails />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="*" element={<RouteNotFound />} />
         </Route>
       </Routes>
