@@ -22,10 +22,10 @@ function Nav() {
         </li>
         <li>
           <Link
-            to="/post/1"
+            to="/contact"
             className="hover:text-gray-500 transition-colors duration-200"
           >
-            Post with ID: 1
+            Contact
           </Link>
         </li>
       </ul>
