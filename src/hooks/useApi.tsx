@@ -15,7 +15,7 @@ function useApi<T>(url: string) {
           throw new Error('Network response was not ok');
         }
         const json = await response.json();
-        setData(json);
+        setData(json.data);
       } catch (error) {
         console.error('Fetching error:', error);
         setIsError(true);
@@ -26,8 +26,8 @@ function useApi<T>(url: string) {
 
     getData();
   }, [url]);
-  console.log('apicall', data);
-  
+  //console.log('apicall', data);
+  //console.log('apipage url', url);
 
   return { data, isLoading, isError };
 }
