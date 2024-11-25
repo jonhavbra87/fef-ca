@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-
+//import { FormData } from '../../types/FormData'
 // Valideringsskjema ved bruk av Yup
 const schema = yup
   .object({
@@ -18,16 +18,25 @@ const schema = yup
   })
   .required();
 
-function Contact() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
 
-  function onSubmit(data) {
+// Bruker `yup.InferType` for å automatisk hente ut typene fra schema
+type FormData = yup.InferType<typeof schema>;
+
+/* interface FormData {
+  firstName: string;
+  age: number;
+} */
+
+  function Contact() {
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm<FormData>({
+      resolver: yupResolver(schema),
+    });
+
+  function onSubmit(data: FormData) {
     console.log(data);
   }
 
