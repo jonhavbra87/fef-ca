@@ -1,11 +1,13 @@
 import Nav from '../Nav';
-import Logo from '../../assets/logo.png';
+import { FaShoppingCart } from 'react-icons/fa';
 
 function Header() {
   return (
-    <header className="bg-red-500 w-full flex flex-wrap fixed top-0 justify-around align-middle font-bold h-16">
-      {/* Logo */}
-      <img src={Logo} alt="Noroff logo" className="w-20 h-full" />
+    <header className="bg-deepPurple w-full flex items-center fixed top-0 justify-between p-4 h-16 shadow-md">
+      {/* Handlevogn-ikon */}
+      <div className="text-white text-3xl cursor-pointer">
+        <FaShoppingCart />
+      </div>
 
       <Nav />
     </header>

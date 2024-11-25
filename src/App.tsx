@@ -16,7 +16,7 @@ function RouteNotFound() {
 
 function App() {
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-darkPurple text-white">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

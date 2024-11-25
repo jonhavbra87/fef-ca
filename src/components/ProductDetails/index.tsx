@@ -29,15 +29,15 @@ function ProductDetails() {
   console.log('data from productdetail', product);
 
   return (
-    <div>
-      <div className="p-4 border rounded-lg shadow-md">
+    <div className='flex'>
+      <div className="p-4 rounded-lg shadow-md justify-center items-center ">
         <img
           src={product.image.url}
           alt={product.image.alt || 'Product Image'}
-          className="w-full h-64 object-cover mb-4"
+          className="w-full max-w-md object-cover mb-4 rounded-lg"
         />
-        <h2 className="text-lg font-bold mb-2">{product.title}</h2>
-        <p className="text-md text-gray-600 mb-4">{product.description}</p>
+        <h2 className="text-lg font-bold mb-2 text-rosewood text-center">{product.title}</h2>
+        <p className="text-md text-cream mb-4">{product.description}</p>
 
         <div className="mb-4">
           <ProductPrice product={product} />
