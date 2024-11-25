@@ -26,7 +26,7 @@ function Products() {
 
   return (
     <div>
-      <h1>Products List</h1>
+      <h1 className='text-3xl text-cream'>Products</h1>
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
