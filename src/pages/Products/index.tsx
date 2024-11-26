@@ -3,7 +3,9 @@ import { BASE_API_URL } from '../../api/apiConfig';
 import useApi from '../../hooks/useApi';
 //import { ApiResponse } from '../../types/apiResponse';
 import { Product } from '../../types/product';
-import ProductCard from '../ProductCard';
+import ProductCard from '../../components/ProductCard';
+import GradientHeading from '../../styles/GradientHeading';
+import Loader from '../../styles/StyledLoader';
 
 function Products() {
   const {
@@ -14,8 +16,9 @@ function Products() {
 
   const products = product;
 
+  // Show loading message if `isLoading` is `true`
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError || !products) {
@@ -26,7 +29,9 @@ function Products() {
 
   return (
     <div>
-      <h1 className='text-3xl text-cream'>Products</h1>
+
+      <GradientHeading>Products</GradientHeading>
+
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

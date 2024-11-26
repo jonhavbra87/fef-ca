@@ -2,28 +2,22 @@ import './index.css';
 
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Products from './components/Products';
-import ProductDetails from './components/ProductDetails';
-import Contact from './components/Contact';
+import Products from './pages/Products';
+import ProductDetails from './pages/ProductDetails';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
-function Home() {
-  return <div className="flex-grow">Home</div>;
-}
 
-function RouteNotFound() {
-  return <div>Page not found</div>;
-}
 
 function App() {
   return (
-    <div className="h-screen bg-darkPurple text-white">
+    <div className="bg-darkPurple text-white">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="products" index element={<Products />} />
+        <Route index element={<Products />} />
           <Route path="product/:id" element={<ProductDetails />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<RouteNotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </div>

@@ -6,7 +6,7 @@ export const ProductPrice = ({ product }: { product: Product }) => {
   return (
     <div className="flex gap-2 items-center">
       <span
-        className={`${hasDiscount ? 'line-through text-gray-400' : 'text-gray-900'}`}
+        className={`${hasDiscount ? 'line-through text-blush' : 'text-blush'}`}
       >
         ${product.price.toFixed(2)}
       </span>

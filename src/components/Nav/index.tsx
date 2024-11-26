@@ -1,35 +1,13 @@
 import { Link } from 'react-router-dom';
+import NavContainer from '../../styles/NavContainer';
 
 function Nav() {
   return (
-    <nav className="flex flex-col items-start p-4 text-white">
-      <ul className="flex align-middle gap-3">
-        <li>
-          <Link
-            to="/"
-            className="hover:text-gray-500 transition-colors duration-200"
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/products"
-            className="hover:text-gray-500 transition-colors duration-200"
-          >
-            Products
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/contact"
-            className="hover:text-gray-500 transition-colors duration-200"
-          >
-            Contact
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <NavContainer>
+    <Link to="/">Home</Link>
+    <Link to="/contact">Contact</Link>
+    <Link to="/cart">Cart</Link>
+  </NavContainer>
   );
 }
 

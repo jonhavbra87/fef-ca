@@ -1,7 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import GradientHeading from '../../styles/GradientHeading';
 //import { FormData } from '../../types/FormData'
+
 // Valideringsskjema ved bruk av Yup
 const schema = yup
   .object({
@@ -52,7 +54,10 @@ type FormData = yup.InferType<typeof schema>;
   function onSubmit(data: FormData) {
     console.log(data);
   }
+
   return (
+    <div>
+    <GradientHeading>Contact Us</GradientHeading>
     <form
       className="flex flex-col gap-6 p-8 max-w-xl mx-auto bg-white rounded-lg shadow-md 
                 md:max-w-2xl lg:max-w-3xl lg:p-10 xl:max-w-4xl xl:p-12"
@@ -130,6 +135,7 @@ type FormData = yup.InferType<typeof schema>;
         Submit
       </button>
     </form>
+    </div>
   );
   
 }
