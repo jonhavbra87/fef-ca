@@ -6,6 +6,7 @@ import { Product } from '../../types/product';
 import ProductCard from '../../components/ProductCard';
 import GradientHeading from '../../styles/GradientHeading';
 import Loader from '../../styles/StyledLoader';
+import Carousel from '../../components/carousel';
 
 function Products() {
   const {
@@ -31,7 +32,9 @@ function Products() {
     <div>
 
       <GradientHeading>Products</GradientHeading>
-
+      
+      <Carousel />
+      
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
