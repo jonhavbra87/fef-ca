@@ -1,4 +1,4 @@
-import { LoaderContainer, StyledLoader } from '../StyledLoader'; 
+import { LoaderContainer, StyledLoader } from '../StyledLoader';
 
 function Loader() {
   return (

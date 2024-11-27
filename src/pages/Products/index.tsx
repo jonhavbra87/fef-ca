@@ -30,11 +30,10 @@ function Products() {
 
   return (
     <div>
-
       <GradientHeading>Products</GradientHeading>
-      
+
       <Carousel />
-      
+
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

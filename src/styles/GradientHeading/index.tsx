@@ -7,12 +7,14 @@ const GradientHeading = styled.h1`
   text-align: center;
   text-transform: uppercase;
   margin: 2rem 0;
-  background: linear-gradient(50deg, #29104A, #522C5D, #E3B6B1);
+  background: linear-gradient(50deg, #522c5d, #ffe3d8);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0.05em;
-  transition: color 0.4s ease-in-out, transform 0.2s ease-in-out;
+  transition:
+    color 0.4s ease-in-out,
+    transform 0.2s ease-in-out;
 
   /* Responsive font sizes */
   @media (min-width: 640px) {
@@ -21,8 +23,6 @@ const GradientHeading = styled.h1`
   @media (min-width: 1024px) {
     font-size: 4rem; /* Large devices (e.g., desktops) */
   }
-
-
 `;
 
 export default GradientHeading;

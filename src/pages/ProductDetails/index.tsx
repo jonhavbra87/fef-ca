@@ -37,13 +37,13 @@ function ProductDetails() {
   return (
     <div className="flex justify-center items-start min-h-screen bg-darkPurple p-4">
       <div className="px-5 max-w-xl w-full">
-      <GradientHeading>  {product.title}</GradientHeading>
+        <GradientHeading> {product.title}</GradientHeading>
         <img
           src={product.image.url}
           alt={product.image.alt || 'Product Image'}
           className="w-full h-64 object-cover mb-4 rounded-lg"
         />
-   
+
         <p className="text-md text-cream mb-4">{product.description}</p>
 
         <div className="mb-4">

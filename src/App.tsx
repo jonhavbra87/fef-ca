@@ -8,14 +8,12 @@ import Contact from './pages/Contact';
 import CartPage from './pages/CartPage';
 import NotFound from './pages/NotFound';
 
-
-
 function App() {
   return (
     <div className="bg-darkPurple text-cream">
       <Routes>
         <Route path="/" element={<Layout />}>
-        <Route index element={<Products />} />
+          <Route index element={<Products />} />
           <Route path="product/:id" element={<ProductDetails />} />
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<CartPage />} />

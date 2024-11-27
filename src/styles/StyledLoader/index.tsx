@@ -44,7 +44,6 @@ export const StyledLoader = styled.div`
   position: relative;
   animation: ${rotate} 1s linear infinite;
 
-
   &::before,
   &::after {
     content: '';
@@ -52,17 +51,19 @@ export const StyledLoader = styled.div`
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid #FFE3D8;
+    border: 5px solid #ffe3d8;
     animation: ${prixClipFix} 2s linear infinite;
   }
 
   &::after {
-    border-color: #522C5D;
-    animation: ${prixClipFix} 2s linear infinite, ${rotate} 0.5s linear infinite reverse;
+    border-color: #522c5d;
+    animation:
+      ${prixClipFix} 2s linear infinite,
+      ${rotate} 0.5s linear infinite reverse;
     inset: 6px;
   }
 
-    // Responsiveness for smaller devices
+  // Responsiveness for smaller devices
   @media (max-width: 768px) {
     width: 36px;
     height: 36px;

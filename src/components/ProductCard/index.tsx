@@ -17,11 +17,13 @@ export const ProductCard = ({ product }: { product: Product }) => {
           <h2 className="text-lg font-bold mb-2 text-cream">{product.title}</h2>
           <p className="text-sm text-blush mb-2">{product.description}</p>
           <ProductPrice product={product} />
-          <p className="text-sm italic text-blush mt-1">Rating: {product.rating}/5</p>
+          <p className="text-sm italic text-blush mt-1">
+            Rating: {product.rating}/5
+          </p>
         </div>
-      <div className="flex justify-end mb-4">
-        <GradientButton>View product</GradientButton>
-      </div>
+        <div className="flex justify-end mb-4">
+          <GradientButton>View product</GradientButton>
+        </div>
       </Link>
     </li>
   );

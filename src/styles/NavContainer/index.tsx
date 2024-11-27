@@ -6,9 +6,8 @@ const NavContainer = styled.nav`
   gap: 2rem;
   font-size: 1rem;
 
-
   a {
-    color: #ffe3d8;;
+    color: #ffe3d8;
     text-decoration: none;
     transition: color 0.3s ease;
 
