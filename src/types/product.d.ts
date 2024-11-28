@@ -1,12 +1,12 @@
 export interface Product {
-  id: string; // Merk at `id` er en string basert på responsen
+  id: string;
   title: string;
   description: string;
   price: number;
   discountedPrice: number;
   image: {
     url: string;
-    alt: string; // Alt-teksten kan være tom, men bør likevel være med
+    alt: string;
   };
   rating: number;
   tags: string[];
