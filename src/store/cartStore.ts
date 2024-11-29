@@ -1,14 +1,13 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { Product } from '../types/product'; 
-import CartStore from '../types/CartStore.d'; 
+import { Product } from '../types/product';
+import CartStore from '../types/CartStore.d';
 
 export const useCartStore = create(
   persist<CartStore>(
     (set) => ({
-
-      items: [], 
-      count: 0,  
+      items: [],
+      count: 0,
 
       // Adds a product to the cart
       addToCart: (product: Product) =>
@@ -27,8 +26,8 @@ export const useCartStore = create(
       // Removes a product from the cart
       removeFromCart: (productId: string) =>
         set((state) => ({
-          items: state.items.filter((item) => item.id !== productId), 
-          count: state.count > 0 ? state.count - 1 : 0, 
+          items: state.items.filter((item) => item.id !== productId),
+          count: state.count > 0 ? state.count - 1 : 0,
         })),
 
       // Clears the entire cart
@@ -37,7 +36,6 @@ export const useCartStore = create(
     {
       name: 'cart-storage', // Name of the storage key
       storage: createJSONStorage(() => localStorage), // Use localStorage
-      
     }
   )
 );

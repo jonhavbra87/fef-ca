@@ -8,7 +8,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <main className="pt-16 bg-darkPurple">
+      <main className="pt-16 bg-background">
         <Outlet />
       </main>
       <Footer />

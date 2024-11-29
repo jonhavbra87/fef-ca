@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        darkPurple: '#150016',
+        background: '#150016',
         deepPurple: '#29104A',
         plum: '#522C5D',
         rosewood: '#845162',

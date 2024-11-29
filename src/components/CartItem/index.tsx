@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Product } from '../../types/product';
 import { ProductPrice } from '../ProductPrice';
 import { Link } from 'react-router-dom';
-import { useCartStore } from '../../store/cartStore'; // Importer Zustand store
+import { useCartStore } from '../../store/cartStore';
 
 const CartItem = ({ product }: { product: Product }) => {
   const [quantity, setQuantity] = useState(1);
-  const { removeFromCart } = useCartStore(); // Legg til Zustand funksjonen for å fjerne produktet
+  const { removeFromCart } = useCartStore();
 
   const incrementQuantity = () => {
     setQuantity(quantity + 1);

@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="bg-darkPurple text-cream">
+    <div className="bg-background text-cream">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Products />} />
