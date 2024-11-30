@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import NavContainer from '../../styles/NavContainer';
+import Cart from '../Cart';
 
 function Nav() {
   return (
     <NavContainer>
       <Link to="/">Home</Link>
       <Link to="/contact">Contact</Link>
-      <Link to="/cart">Cart</Link>
+      <Link to="/cart">
+      <Cart />
+      </Link>
     </NavContainer>
   );
 }
