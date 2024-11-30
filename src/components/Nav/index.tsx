@@ -8,7 +8,10 @@ function Nav() {
       <Link to="/">Home</Link>
       <Link to="/contact">Contact</Link>
       <Link to="/cart">
+      <div className='hidden md:block'>
       <Cart />
+      
+      </div>
       </Link>
     </NavContainer>
   );
