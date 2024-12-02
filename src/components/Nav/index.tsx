@@ -1,16 +1,10 @@
-import { Link } from 'react-router-dom';
-import NavContainer from '../../styles/NavContainer';
-import Cart from '../Cart';
+import NavLinks from '../NavLinks';
 
 function Nav() {
   return (
-    <NavContainer>
-      <Link to="/">Home</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/cart">
-      <Cart />
-      </Link>
-    </NavContainer>
+    <nav className="hidden md:flex md:flex-row md:gap-6 md:items-center">
+      <NavLinks /> {/* Her brukes NavLinks-komponenten */}
+    </nav>
   );
 }
 
