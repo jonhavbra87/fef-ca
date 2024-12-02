@@ -3,8 +3,8 @@ import styled from 'styled-components';
 // Navigation container styled component
 const NavContainer = styled.nav`
   display: flex;
+  flex-direction: column;
   gap: 2rem;
-  font-size: 1rem;
 
   a {
     color: #ffe3d8;
