@@ -35,7 +35,7 @@ function ProductDetails() {
   console.log('data from productdetail', product);
 
   return (
-    <div className="flex justify-center items-start min-h-screen bg-cream p-4">
+    <div className="flex justify-center items-start min-h-screen p-4">
       <div className="px-5 max-w-xl w-full">
         <GradientHeading> {product.title}</GradientHeading>
         <img
@@ -44,9 +44,9 @@ function ProductDetails() {
           className="w-full h-64 object-cover mb-4 rounded-lg"
         />
 
-        <p className="text-md text-cream mb-4">{product.description}</p>
+        <p className="text-md text-background mb-4">{product.description}</p>
 
-        <div className="mb-4">
+        <div className="mb-4 text-lg">
           <ProductPrice product={product} />
         </div>
 
