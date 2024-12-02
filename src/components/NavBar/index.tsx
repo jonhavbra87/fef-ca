@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Cart from '../Cart';
 import NavLinks from '../NavLinks';
 import { Link } from 'react-router-dom';
+import { NavMenu } from '../../styles/NavMenu';
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,20 +22,19 @@ function NavBar() {
       </Link>
 
       {/* Hamburger Icon - Kun synlig på mobil */}
-      <div className="text-cream text-3xl cursor-pointer md:hidden" onClick={toggleMenu}>
+      <div 
+      className={`text-cream text-3xl cursor-pointer md:hidden transform transition-transform duration-400 ${
+        isOpen ? 'rotate- scale-110' : ''
+      }`}
+      onClick={toggleMenu}
+    >
         {isOpen ? <FiX /> : <HiOutlineMenuAlt2 />}
       </div>
 
       {/* Navigation Menu - viser seg når `isOpen` er true eller på desktop */}
-      <nav
-        className={`${
-          isOpen
-            ? 'flex flex-col items-center bg-background p-4 absolute top-16 left-0 right-0 w-full z-40 gap-4'
-            : 'hidden'
-        } md:flex md:flex-row md:gap-6 md:items-center`}
-      >
+    <NavMenu isOpen={isOpen}>
         <NavLinks />
-      </nav>
+      </NavMenu>
     </div>
   );
 }
