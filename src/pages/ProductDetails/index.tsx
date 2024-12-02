@@ -35,7 +35,7 @@ function ProductDetails() {
   console.log('data from productdetail', product);
 
   return (
-    <div className="flex justify-center items-start min-h-screen bg-background p-4">
+    <div className="flex justify-center items-start min-h-screen bg-cream p-4">
       <div className="px-5 max-w-xl w-full">
         <GradientHeading> {product.title}</GradientHeading>
         <img
