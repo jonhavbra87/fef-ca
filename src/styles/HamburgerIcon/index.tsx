@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HamburgerIcon = styled.div<{ isOpen: boolean }>`
   color: #845162;

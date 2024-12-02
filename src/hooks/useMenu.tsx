@@ -5,7 +5,7 @@ function useMenu() {
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   };
 
   const closeMenu = () => {

@@ -40,7 +40,6 @@ export const NavMenu = styled.nav<{ isOpen: boolean }>`
   gap: 1rem;
   overflow: hidden;
 
-
   /* Animasjon: Bruker slideDown når menyen åpnes og slideUp når den lukkes */
   animation: ${({ isOpen }) => (isOpen ? slideDown : slideUp)} 0.5s ease-in-out;
 
