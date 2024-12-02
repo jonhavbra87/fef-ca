@@ -1,15 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 
 function useMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setisOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
+    setisOpen((prev) => !prev);
   };
 
   const closeMenu = () => {
-    setIsOpen(false);
+    setisOpen(false);
   };
 
   useEffect(() => {
