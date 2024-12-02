@@ -30,7 +30,7 @@ function SearchBar({onSearch}: SearchBarProps) {
         value={query}
         onChange={handleInputChange}
         onKeyUp={handleSearch}
-        className="rounded-s-md grow border border-rosewood p-2"
+        className="rounded-s-md grow border border-rosewood text-background p-2"
       />
 
       <button
