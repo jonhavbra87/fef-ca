@@ -26,8 +26,8 @@ const slideUp = keyframes`
   `;
 
 // Styled komponent for navigasjonsmenyen
-export const NavMenu = styled.nav<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+export const NavMenu = styled.nav<{ isopen: boolean }>`
+  display: ${({ isopen }) => (isopen ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
   background-color: #150016;
@@ -41,7 +41,7 @@ export const NavMenu = styled.nav<{ isOpen: boolean }>`
   overflow: hidden;
 
   /* Animasjon: Bruker slideDown når menyen åpnes og slideUp når den lukkes */
-  animation: ${({ isOpen }) => (isOpen ? slideDown : slideUp)} 0.5s ease-in-out;
+  animation: ${({ isopen }) => (isopen ? slideDown : slideUp)} 0.5s ease-in-out;
 
   @media (min-width: 768px) {
     display: flex;

@@ -7,8 +7,14 @@ import ProductCard from '../../components/ProductCard';
 import GradientHeading from '../../styles/GradientHeading';
 import Loader from '../../styles/StyledLoader';
 import Carousel from '../../components/carousel';
+import { useState } from 'react';
+import SearchBar from '../../components/SearchBar';
 
 function Products() {
+
+  //state for search input
+  const [searchTerm, setSearchTerm] = useState<string>('')
+
   const {
     data: product,
     isLoading,
@@ -26,6 +32,17 @@ function Products() {
     return <div>Error loading data.</div>;
   }
 
+    // Filter products based on the search term
+    const filteredProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  
+    // Event handler for search input change
+    const handleSearch = (query: string) => {
+      setSearchTerm(query);
+    };
+
   console.log('products from product page', products);
 
   return (
@@ -34,8 +51,13 @@ function Products() {
 
       <Carousel />
 
+      {/* SearchBar komponent */}
+      <div className="my-4">
+        <SearchBar onSearch={handleSearch} />
+      </div>
+
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </ul>
