@@ -12,6 +12,7 @@ function SearchBar({onSearch}: SearchBarProps) {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setQuery(value);
+
     console.log(value);
   };
 
