@@ -7,10 +7,11 @@ function Header() {
     <header className="bg-background w-full flex items-center fixed top-0 justify-between p-4 h-16 shadow-md z-50">
       {/* Left: Logo */}
       <div className="flex items-center">
-        <Link to="/" >
+        <Link to="/">
           <img src={Logo} alt="eCom logo" className="h-14" />
         </Link>
       </div>
+
 
       {/* Right: Navbar and Cart */}
       <NavBar />

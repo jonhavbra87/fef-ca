@@ -8,7 +8,7 @@ import useMenu from '../../hooks/useMenu';
 import { HamburgerIcon } from '../../styles/HamburgerIcon';
 
 function NavBar() {
-  const { isOpen, toggleMenu, closeMenu, menuRef } = useMenu();
+  const { isopen, toggleMenu, closeMenu, menuRef } = useMenu();
 
   return (
     <div
@@ -26,12 +26,12 @@ function NavBar() {
       </Link>
 
       {/* Hamburger Icon - Kun synlig på mobil */}
-      <HamburgerIcon isOpen={isOpen} onClick={toggleMenu}>
-        {isOpen ? <FiX /> : <HiOutlineMenuAlt2 />}
+      <HamburgerIcon i={isopen} onClick={toggleMenu}>
+        {isopen ? <FiX /> : <HiOutlineMenuAlt2 />}
       </HamburgerIcon>
 
       {/* Navigation Menu - viser seg når `isOpen` er true eller på desktop */}
-      <NavMenu isOpen={isOpen}>
+      <NavMenu isopen={isopen}>
         <NavLinks closeMenu={closeMenu} />
       </NavMenu>
     </div>
