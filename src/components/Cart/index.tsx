@@ -1,12 +1,11 @@
-import { FaShoppingCart } from "react-icons/fa";
-import { useCartStore } from "../../store/cartStore";
+import { FaShoppingCart } from 'react-icons/fa';
+import { useCartStore } from '../../store/cartStore';
 
 function Cart() {
-    const { count } = useCartStore();
+  const { count } = useCartStore();
 
-    return (
-
-      <div className="relative text-cream text-2xl cursor-pointer">
+  return (
+    <div className="relative text-cream text-2xl cursor-pointer">
       <span className="sr-only">Cart</span>
       <FaShoppingCart />
       {count > 0 && (
@@ -15,7 +14,7 @@ function Cart() {
         </span>
       )}
     </div>
-    )   
+  );
 }
 
 export default Cart;

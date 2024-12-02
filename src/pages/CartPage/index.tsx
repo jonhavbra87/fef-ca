@@ -5,7 +5,7 @@ function CartPage() {
   const { items } = useCartStore();
 
   return (
-    <div className="bg-background ">
+    <div>
       <h1>Cart</h1>
       <p>This is cart page</p>
       <div>
