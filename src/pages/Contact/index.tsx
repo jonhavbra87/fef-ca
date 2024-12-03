@@ -12,7 +12,7 @@ const schema = yup
     firstName: yup
       .string()
       .min(3, 'Your first name should be at least 3 characters.')
-      .max(10, 'Your first name cannot be longer than 10 characters.')
+      .max(20, 'Your first name cannot be longer than 20 characters.')
       .required('Please enter your first name'),
     lastName: yup
       .string()
@@ -57,7 +57,7 @@ function Contact() {
     console.log(data);
     alert('Your message has been sent!');
     reset();
-    //refresh page
+
   }
 
   return (
