@@ -11,7 +11,7 @@ import CheckoutSuccess from './pages/CheckoutSuccess';
 
 function App() {
   return (
-    <div className="bg-background text-cream">
+    <div className="bg-white text-background">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Products />} />

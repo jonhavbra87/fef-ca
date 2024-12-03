@@ -8,7 +8,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <main className="pt-16 bg-cream">
+      <main className="pt-16 w-11/12 lg:w-10/12 max-w-screen-xl mx-auto">
         <Outlet />
       </main>
       <Footer />

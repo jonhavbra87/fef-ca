@@ -3,9 +3,9 @@ import { FiX } from 'react-icons/fi';
 import Cart from '../Cart';
 import NavLinks from '../NavLinks';
 import { Link } from 'react-router-dom';
-import { NavMenu } from '../../styles/NavMenu';
 import useMenu from '../../hooks/useMenu';
 import { HamburgerIcon } from '../../styles/HamburgerIcon';
+import { NavMenu } from '../../styles/NavMenu';
 
 function NavBar() {
   const { isOpen, toggleMenu, closeMenu, menuRef } = useMenu();
