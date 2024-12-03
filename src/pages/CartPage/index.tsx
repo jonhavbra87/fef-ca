@@ -13,7 +13,6 @@ function CartPage() {
   const handleCouponChange = (e: React.ChangeEvent<HTMLInputElement>) => setCouponCode(e.target.value);
   const subtotal = items.reduce((total, item) => total + item.discountedPrice, 0);
   const shippingCost = 8; // Eksempelverdi
-  const tax = 0; // Eksempelverdi, kan utvides for skatteregning
   
   return (
     <div className='mx-auto'>
@@ -43,13 +42,10 @@ function CartPage() {
           <span className="text-gray-600">Shipping Cost</span>
           <span className="font-bold">${shippingCost.toFixed(2)}</span>
         </div>
-        <div className="flex justify-between mb-2">
-          <span className="text-gray-600">Tax</span>
-          <span className="font-bold">${tax.toFixed(2)}</span>
-        </div>
+      
         <div className="flex justify-between text-lg font-bold mt-4">
           <span>Total</span>
-          <span>${(subtotal + shippingCost + tax).toFixed(2)}</span>
+          <span>${(subtotal + shippingCost).toFixed(2)}</span>
         </div>
       </div>
 
@@ -71,7 +67,7 @@ function CartPage() {
         </button>
       </div>
 
-      <Link to="/checkoutsuccess">
+      <Link to="/checkoutpage">
         <GradientButton>Place order</GradientButton>
       </Link>
     </div>
