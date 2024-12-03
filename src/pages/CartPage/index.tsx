@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
 import CartItem from '../../components/CartItem';
 import { useCartStore } from '../../store/cartStore';
+import { GradientButton } from '../../styles/GradientButton';
 
 function CartPage() {
   const { items } = useCartStore();
@@ -13,6 +15,10 @@ function CartPage() {
           <CartItem key={product.id} product={product} />
         ))}
       </div>
+
+      <Link to="/checkoutsuccess">
+        <GradientButton>Place order</GradientButton>
+      </Link>
     </div>
   );
 }

@@ -27,9 +27,11 @@ const slideUp = keyframes`
 
 // Styled komponent for navigasjonsmenyen
 export const NavMenu = styled.nav<{ isOpen: boolean }>`
-    visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transition: visibility 0.5s, opacity 0.5s ease-in-out;
+  transition:
+    visibility 0.5s,
+    opacity 0.5s ease-in-out;
   animation: ${({ isOpen }) => (isOpen ? slideDown : slideUp)} 0.5s ease-in-out;
 
   flex-direction: column;

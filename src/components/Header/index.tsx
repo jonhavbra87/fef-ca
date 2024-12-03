@@ -12,7 +12,6 @@ function Header() {
         </Link>
       </div>
 
-
       {/* Right: Navbar and Cart */}
       <NavBar />
     </header>

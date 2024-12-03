@@ -1,13 +1,11 @@
 import { useState } from 'react';
 
-
 interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
-function SearchBar({onSearch}: SearchBarProps) {
+function SearchBar({ onSearch }: SearchBarProps) {
   const [query, setQuery] = useState<string>('');
-
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -15,8 +13,6 @@ function SearchBar({onSearch}: SearchBarProps) {
 
     console.log(value);
   };
-
-  
 
   const handleSearch = () => {
     onSearch(query);
@@ -26,7 +22,7 @@ function SearchBar({onSearch}: SearchBarProps) {
     <div className="flex">
       <input
         placeholder="Search"
-        type='text'
+        type="text"
         value={query}
         onChange={handleInputChange}
         onKeyUp={handleSearch}

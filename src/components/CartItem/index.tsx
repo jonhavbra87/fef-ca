@@ -19,7 +19,7 @@ const CartItem = ({ product }: { product: Product }) => {
   };
 
   return (
-    <li className="bg-gray-500 rounded-lg shadow-md border border-deepPurple hover:shadow-lg transition-shadow p-4 mb-4">
+    <li className="bg-background rounded-lg shadow-md border border-deepPurple bg-opacity-80 w-10/12 mx-auto hover:shadow-lg transition-shadow py-2 mb-4">
       {/* Content Wrapper */}
       <div className="flex flex-col md:flex-row items-center gap-4">
         {/* Product Image with Clickable Link */}
@@ -34,7 +34,7 @@ const CartItem = ({ product }: { product: Product }) => {
         </div>
 
         {/* Product Details */}
-        <div className="flex-grow px-4">
+        <div className="flex-grow px-1">
           <h2 className="text-lg font-bold text-cream">{product.title}</h2>
           <p className="text-sm sm:line-clamp-2 md:line-clamp-3 lg:line-clamp-5 text-blush mb-2">
             {product.description}

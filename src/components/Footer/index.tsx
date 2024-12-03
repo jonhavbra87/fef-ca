@@ -42,17 +42,34 @@ function Footer() {
             <h3 className="text-lg">Follow us:</h3>
             <div className="flex gap-4 text-3xl">
               {/* Using react-icons for social media icons */}
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-blush transition-colors duration-300">
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blush transition-colors duration-300"
+              >
                 <FaInstagram />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blush transition-colors duration-300">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blush transition-colors duration-300"
+              >
                 <FaTwitter />
               </a>
-              <a href="https://www.snapchat.com" target="_blank" rel="noopener noreferrer" className="hover:text-blush transition-colors duration-300">
+              <a
+                href="https://www.snapchat.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blush transition-colors duration-300"
+              >
                 <FaSnapchat />
               </a>
             </div>
-            <address className="text-sm not-italic mt-2">Infinite ground 11, 1337 SPACE</address>
+            <address className="text-sm not-italic mt-2">
+              Infinite ground 11, 1337 SPACE
+            </address>
           </div>
         </div>
       </div>
