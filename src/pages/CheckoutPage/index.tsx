@@ -3,19 +3,21 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import { useCartStore } from "../../store/cartStore";
-import { GradientButton } from "../../styles/GradientButton";
+//import { GradientButton } from "../../styles/GradientButton";
 import GradientHeading from "../../styles/GradientHeading";
+import { useState } from 'react';
+
 
 
 const schema = yup.
 object({
   firstName: yup
     .string()
-    .min(2, 'Your first name should be at least 2 characters.')
+    .min(3, 'Your first name should be at least 2 characters.')
     .required('Please enter your first name'),
   lastName: yup
     .string()
-    .min(2, 'Your last name should be at least 2 characters.')
+    .min(3, 'Your last name should be at least 2 characters.')
     .required('Please enter your last name'),
   address: yup
     .string()
@@ -23,7 +25,7 @@ object({
     .required('Please enter your address'),
   postcode: yup
     .string()
-    .min(4, 'Your postcode should be at least 4 characters.')
+    .min(4, 'Your postcode should be a number of 4 digits.')
     .required('Please enter your postcode'),
   country: yup
     .string()
@@ -40,10 +42,11 @@ object({
 
 type FormData = yup.InferType<typeof schema>;
 
+const paymentMethods = ['Visa', 'Mastercard', 'PayPal', 'Vipps'];
 
 function CheckoutPage() {
     
-    const { items } = useCartStore();
+    const { items, clearCart } = useCartStore();
     const subtotal = items.reduce((total, item) => total + item.discountedPrice, 0);
     const shippingCost = 8; // Eksempelverdi
   
@@ -56,11 +59,29 @@ function CheckoutPage() {
         resolver: yupResolver(schema),
     });
 
-    function onSubmit(data: FormData) {
-        console.log(data);
-        alert('Your order has been placed!');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const onSubmit = async (data: FormData) => {
+        setIsSubmitting(true);
+        
+      const orderDetails = {
+          ...data,
+          items,
+          subtotal,
+          shippingCost,
+        };
+       console.log(orderDetails);
+        
+        // Simulate order submission
+      setTimeout(() => {
+        alert('Your order has been placed successfully!');
         reset();
+        clearCart();
+        setIsSubmitting(false);
       }
+      , 450);
+    };
+      
 
     return (
       <div className='mx-auto'>
@@ -71,7 +92,7 @@ function CheckoutPage() {
         onSubmit={handleSubmit(onSubmit)}
         className="mt-8 space-y-6 p-8 max-w-xl mx-auto rounded-lg shadow-md"
       >
-        {/* Personlig informasjon */}
+        {/* Adress Form */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex flex-col">
             <label htmlFor="firstName" className="mb-1 font-semibold text-lg">First Name</label>
@@ -126,11 +147,11 @@ function CheckoutPage() {
           </div>
         </div>
 
-        {/* Valg av betalingsmetode */}
+        {/* Payment method */}
         <div className="flex flex-col">
           <label className="mb-2 font-semibold  text-lg">Payment Method</label>
           <div className="flex flex-wrap gap-4">
-            {['Visa', 'Mastercard', 'PayPal', 'Vipps'].map((method) => (
+            {paymentMethods.map((method) => (
               <label key={method} className="flex items-center gap-2">
                 <input
                   type="radio"
@@ -147,27 +168,33 @@ function CheckoutPage() {
           )}
         </div>
 
-        {/* Kostnadsoversikt */}
-        <div className=" border-t border-gray-300 pt-4 mb-6">
-          <div className="flex justify-between mb-2">
-            <span className="text-gray-600">Subtotal</span>
-            <span className="font-bold">${subtotal.toFixed(2)}</span>
+        
+        {/* Order Summary */}
+        <h2 className="text-lg font-semibold">Order Summary</h2>
+        <div className="border-t pt-4">
+          {items.map((item) => (
+            <div key={item.id} className="flex justify-between">
+              <span>{item.title}</span>
+              <span>${item.discountedPrice.toFixed(2)}</span>
+            </div>
+          ))}
+          <div className="flex justify-between mt-2">
+            <span>Shipping</span>
+            <span>${shippingCost.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between mb-2">
-            <span className="text-gray-600">Shipping Cost</span>
-            <span className="font-bold">${shippingCost.toFixed(2)}</span>
-          </div>
-
-          <div className="flex justify-between text-lg font-bold mt-4">
+          <div className="flex justify-between font-bold mt-4">
             <span>Total</span>
             <span>${(subtotal + shippingCost).toFixed(2)}</span>
           </div>
         </div>
 
         {/* Order Button */}
-        <GradientButton type="submit" className="w-full py-4">
-          Place Order
-        </GradientButton>
+        <button 
+        type="submit" 
+        disabled={isSubmitting}
+        className="w-full py-4 bg-background text-white  rounded-md">
+          {isSubmitting ? 'Placing order...' : 'Place Order'}
+        </button>
       </form>
     </div>
     );
