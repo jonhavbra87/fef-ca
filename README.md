@@ -1,4 +1,4 @@
-# Semester Project 2nd year
+# REACT Course Assignment
 
 ![eComStore](https://images.unsplash.com/photo-1528091805199-1751146723c5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHNob3B8ZW58MHx8MHx8fDA%3D)
 
