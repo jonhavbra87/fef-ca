@@ -22,15 +22,6 @@ The back-end API functionality is already managed by an existing application, so
 
 ## 🔧 **Features**
 
-### Listing & Bidding
-
-- **Create Listing**: Registered users can create new auction listings with:
-  - Title
-  - Deadline date
-  - Media gallery
-  - Description
-- **Bidding**: Registered users can place bids on other users' listings.
-
 ### Search & View
 
 - **View Listings**: Users can search through the items.
