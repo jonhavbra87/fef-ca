@@ -10,7 +10,7 @@ The objective of this project is to apply the front-end development skills acqui
 
 The goal is to create a front-end eCom site where:
 
-- Unregistered users can browse and search for items and then buy them.
+Users can browse and search for items and then buy them.
 
 The back-end API functionality is already managed by an existing application, so this project focuses solely on building the **front-end** to interact with the API.
 
