@@ -38,6 +38,8 @@ The back-end API functionality is already managed by an existing application, so
 
 - **REACT** and **TypeScript** for the front-end development.
 - **Tailwind** for responsive design and UI components.
+- **Yup** & **React-Hook-Form** for validation.
+- **Zustand** for CartStore.
 - **Vite** as the build tool and development server for fast module-based development.
 - **API**: The site interacts with the [Noroff eCom API](https://docs.noroff.dev/docs/v2) to manage items data.
 - **Jest** for unit testing.
