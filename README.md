@@ -4,29 +4,23 @@
 
 ## 🎯 **Project Goal**
 
-The objective of this project is to apply the front-end development skills acquired over the past three semesters and learning REACT by building an eCom website. The website will allow users to buy items and checkout.
+The objective of this project is to apply the front-end development skills acquired over the past three semesters and learning REACT by building an eCom website. The website will allow users to buy items from the shop and checkout.
 
 ## 📝 **Project Brief**
 
-The goal is to create a front-end auction site where:
+The goal is to create a front-end eCom site where:
 
-- Unregistered users can browse listings and buy items.
+- Unregistered users can browse and search for items and then buy them.
 
 The back-end API functionality is already managed by an existing application, so this project focuses solely on building the **front-end** to interact with the API.
 
 ## 🖥️ **Live Demo**
 
-[Link to live demo](https://sp2-jahb.netlify.app/)
+[Link to live demo](https://www.fef-jahb.netlify.app/)
 
 ---
 
 ## 🔧 **Features**
-
-### User Authentication
-
-- **Register**: Users with a valid **stud.noroff.no** email can sign up.
-- **Login/Logout**: Users can log in and out of the system.
-- **Avatar Update**: Registered users can update their profile pictures.
 
 ### Listing & Bidding
 
@@ -39,23 +33,22 @@ The back-end API functionality is already managed by an existing application, so
 
 ### Search & View
 
-- **View Listings**: Unregistered users can search through the listings.
-- **View Bids**: Registered users can view all bids placed on a listing.
+- **View Listings**: Users can search through the items.
+- **View items**: Users can view an item after searching for them.
 
-### User Credits
+### Contact form
 
-- Each registered user starts with **1000 credits**.
-- Credits can be earned by selling items or used to purchase items via bidding.
+- **Form Validation**: Users can´t send in the contact form if the requirement is not met.
+- **User Experience**: Users gets warnings for witch requirement that isn´t met.
 
 ---
 
 ## 🚀 **Technologies Used**
 
-- **HTML5**, **SCSS**, and **JavaScript** for the front-end development.
-- **Bootstrap** for responsive design and UI components.
+- **REACT** and **TypeScript** for the front-end development.
+- **Tailwind** for responsive design and UI components.
 - **Vite** as the build tool and development server for fast module-based development.
-- **Figma** for design and prototyping
-- **API**: The site interacts with the [Noroff Auction API](https://docs.noroff.dev/docs/v2) to manage listing data and bids.
+- **API**: The site interacts with the [Noroff eCom API](https://docs.noroff.dev/docs/v2) to manage items data.
 - **Jest** for unit testing.
 
 ---
@@ -65,7 +58,7 @@ The back-end API functionality is already managed by an existing application, so
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/jonhavbra87/SP2
+git clone https://github.com/jonhavbra87/fef-ca
 ```
 
 2. Install the dependencies:
@@ -110,7 +103,7 @@ npm run test:unit
 
 ## Contributing
 
-This is a Noroff semester project. I appreciate a peer review if you got the time!
+This is a Noroff Courtse Assignemt for REACT. I appreciate a peer review if you got the time!
 
 ## Contact
 
