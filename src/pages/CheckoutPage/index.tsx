@@ -1,6 +1,6 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+//import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
+//import * as yup from 'yup';
 
 import { useCartStore } from "../../store/cartStore";
 //import { GradientButton } from "../../styles/GradientButton";
@@ -8,7 +8,7 @@ import GradientHeading from "../../styles/GradientHeading";
 import { useState } from 'react';
 
 
-
+/* 
 const schema = yup.
 object({
   firstName: yup
@@ -41,6 +41,20 @@ object({
 
 
 type FormData = yup.InferType<typeof schema>;
+ */
+
+//  useForm<FormData>({  resolver: yupResolver(schema),
+
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  address: string;
+  postcode: string;
+  country: string;
+  email: string;
+  paymentMethod: string;
+};
 
 const paymentMethods = ['Visa', 'Mastercard', 'PayPal', 'Vipps'];
 
@@ -55,13 +69,13 @@ function CheckoutPage() {
         handleSubmit,
         formState: { errors },
         reset,
-        } = useForm<FormData>({
-        resolver: yupResolver(schema),
-    });
+        } = useForm<FormData>();
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const onSubmit = async (data: FormData) => {
+      console.log("Form submitted");
+      console.log("Errors:", errors);
         setIsSubmitting(true);
         
       const orderDetails = {
@@ -88,27 +102,39 @@ function CheckoutPage() {
 
           <GradientHeading>Checkout</GradientHeading>
 
-    <form 
+          <form 
         onSubmit={handleSubmit(onSubmit)}
         className="mt-8 space-y-6 p-8 max-w-xl mx-auto rounded-lg shadow-md"
       >
-        {/* Adress Form */}
+        {/* Address Form */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex flex-col">
             <label htmlFor="firstName" className="mb-1 font-semibold text-lg">First Name</label>
             <input
               id="firstName"
-              {...register('firstName')}
+              {...register('firstName', {
+                required: 'Please enter your first name',
+                minLength: {
+                  value: 2,
+                  message: 'Your first name should be at least 2 characters',
+                },
+              })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
             />
             {errors.firstName && <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>}
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="lastName" className="mb-1 font-semibold  text-lg">Last Name</label>
+            <label htmlFor="lastName" className="mb-1 font-semibold text-lg">Last Name</label>
             <input
               id="lastName"
-              {...register('lastName')}
+              {...register('lastName', {
+                required: 'Please enter your last name',
+                minLength: {
+                  value: 2,
+                  message: 'Your last name should be at least 2 characters',
+                },
+              })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
             />
             {errors.lastName && <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>}
@@ -116,10 +142,16 @@ function CheckoutPage() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="address" className="mb-1 font-semibold  text-lg">Address</label>
+          <label htmlFor="address" className="mb-1 font-semibold text-lg">Address</label>
           <input
             id="address"
-            {...register('address')}
+            {...register('address', {
+              required: 'Please enter your address',
+              minLength: {
+                value: 5,
+                message: 'Your address should be at least 5 characters',
+              },
+            })}
             className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
           />
           {errors.address && <p className="mt-1 text-sm text-red-600">{errors.address.message}</p>}
@@ -127,36 +159,59 @@ function CheckoutPage() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex flex-col">
-            <label htmlFor="postcode" className="mb-1 font-semibold  text-lg">Postcode</label>
+            <label htmlFor="postcode" className="mb-1 font-semibold text-lg">Postcode</label>
             <input
               id="postcode"
-              {...register('postcode')}
+              {...register('postcode', {
+                required: 'Please enter your postcode',
+                minLength: {
+                  value: 4,
+                  message: 'Your postcode should be at least 4 characters',
+                },
+              })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
             />
             {errors.postcode && <p className="mt-1 text-sm text-red-600">{errors.postcode.message}</p>}
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="country" className="mb-1 font-semibold  text-lg">Country</label>
+            <label htmlFor="country" className="mb-1 font-semibold text-lg">Country</label>
             <input
               id="country"
-              {...register('country')}
+              {...register('country', { required: 'Please enter your country' })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
             />
             {errors.country && <p className="mt-1 text-sm text-red-600">{errors.country.message}</p>}
           </div>
         </div>
 
+        <div className="flex flex-col">
+          <label htmlFor="email" className="mb-1 font-semibold text-lg">Email</label>
+          <input
+            id="email"
+            type="email"
+            {...register('email', {
+              required: 'Please enter your email address',
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Please enter a valid email address',
+              },
+            })}
+            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
+          />
+          {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
+        </div>
+
         {/* Payment method */}
         <div className="flex flex-col">
-          <label className="mb-2 font-semibold  text-lg">Payment Method</label>
+          <label className="mb-2 font-semibold text-lg">Payment Method</label>
           <div className="flex flex-wrap gap-4">
             {paymentMethods.map((method) => (
               <label key={method} className="flex items-center gap-2">
                 <input
                   type="radio"
                   value={method}
-                  {...register('paymentMethod')}
+                  {...register('paymentMethod', { required: 'Please select a payment method' })}
                   className="text-rosewood focus:ring-rosewood"
                 />
                 {method}
@@ -168,7 +223,6 @@ function CheckoutPage() {
           )}
         </div>
 
-        
         {/* Order Summary */}
         <h2 className="text-lg font-semibold">Order Summary</h2>
         <div className="border-t pt-4">
@@ -190,9 +244,10 @@ function CheckoutPage() {
 
         {/* Order Button */}
         <button 
-        type="submit" 
-        disabled={isSubmitting}
-        className="w-full py-4 bg-background text-white  rounded-md">
+          type="submit" 
+          disabled={isSubmitting}
+          className="w-full py-4 bg-background text-white rounded-md"
+        >
           {isSubmitting ? 'Placing order...' : 'Place Order'}
         </button>
       </form>
