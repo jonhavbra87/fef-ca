@@ -7,14 +7,15 @@ import { GradientButton } from "../../styles/GradientButton";
 import GradientHeading from "../../styles/GradientHeading";
 
 
-const schema = yup.object({
+const schema = yup.
+object({
   firstName: yup
     .string()
-    .min(3, 'Your first name should be at least 3 characters.')
+    .min(2, 'Your first name should be at least 2 characters.')
     .required('Please enter your first name'),
   lastName: yup
     .string()
-    .min(3, 'Your last name should be at least 3 characters.')
+    .min(2, 'Your last name should be at least 2 characters.')
     .required('Please enter your last name'),
   address: yup
     .string()

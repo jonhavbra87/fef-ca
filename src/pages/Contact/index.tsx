@@ -29,7 +29,7 @@ const schema = yup
       .required('Please enter your email address'),
     body: yup
       .string()
-      .min(10, 'Your message should be at least 10 characters.')
+      .min(3, 'Your message should be at least 3 characters.')
       .max(500, 'Your message cannot be longer than 500 characters.')
       .required('Please enter your message'),
   })
