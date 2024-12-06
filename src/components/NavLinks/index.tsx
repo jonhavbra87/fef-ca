@@ -1,25 +1,25 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NavLinks({ closeMenu }: { closeMenu: () => void }) {
   return (
     <div className="flex flex-col md:flex-row gap-4 md:gap-6 md:items-center">
       {/* Hjem-lenke */}
-      <Link
+      <NavLink
         to="/"
         className="text-cream text-lg hover:text-blush transition-colors duration-200"
         onClick={closeMenu}
       >
         Home
-      </Link>
+      </NavLink>
 
       {/* Kontakt-lenke */}
-      <Link
+      <NavLink
         to="/contact"
         className="text-cream text-lg hover:text-blush transition-colors duration-200"
         onClick={closeMenu}
       >
         Contact
-      </Link>
+      </NavLink>
     </div>
   );
 }

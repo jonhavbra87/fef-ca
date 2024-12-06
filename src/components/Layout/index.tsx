@@ -6,9 +6,9 @@ import Footer from '../Footer';
 // passing through "children" in a component
 function Layout() {
   return (
-    <div>
+    <div className='flex flex-col h-screen'>
       <Header />
-      <main className="pt-16 w-11/12 lg:w-10/12 max-w-screen-xl mx-auto">
+      <main className="pt-16 w-11/12 lg:w-10/12 max-w-screen-xl mx-auto flex-grow">
         <Outlet />
       </main>
       <Footer />
