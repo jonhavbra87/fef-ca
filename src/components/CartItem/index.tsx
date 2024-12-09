@@ -1,21 +1,19 @@
-import { useState } from 'react';
 import { Product } from '../../types/product';
 import { ProductPrice } from '../ProductPrice';
 import { Link } from 'react-router-dom';
-import { useCartStore } from '../../store/cartStore';
+import useCartStore from '../../store/cartStore';
 import { MdDelete } from 'react-icons/md';
 
 const CartItem = ({ product }: { product: Product }) => {
-  const [quantity, setQuantity] = useState(1);
-  const { removeFromCart } = useCartStore();
+  const { removeFromCart, updateQuantity } = useCartStore();
 
   const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+    updateQuantity(product.id, (product.quantity || 1) + 1);
   };
 
   const decrementQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+    if ((product.quantity || 1) > 1) {
+      updateQuantity(product.id, (product.quantity || 1) - 1);
     }
   };
 
@@ -53,7 +51,7 @@ const CartItem = ({ product }: { product: Product }) => {
             >
               -
             </button>
-            <span className="text-primary font-bold">{quantity}</span>
+            <span className="text-primary font-bold">{product.quantity || 1}</span>
             <button
               onClick={incrementQuantity}
               className="bg-cta text-white px-2 py-1 rounded-lg hover:bg-purple-700 transition-colors"
@@ -62,17 +60,16 @@ const CartItem = ({ product }: { product: Product }) => {
             </button>
           </div>
 
-
           {/* Total Price for Item */}
           <div className="text-primary text-md font-bold mt-2 md:mt-0 ml-0 md:ml-4">
-            ${(product.discountedPrice * quantity).toFixed(2)}
+            ${(product.discountedPrice * (product.quantity || 1)).toFixed(2)}
           </div>
 
           {/* Delete Button */}
           <button
             onClick={() => removeFromCart(product.id)}
             className="text-white me-2 md:mt-0 ml-0 md:ml-4 hover:text-cta transition-colors"
-            >
+          >
             <MdDelete />
           </button>
         </div>

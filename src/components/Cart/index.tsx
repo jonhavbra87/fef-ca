@@ -1,18 +1,22 @@
 import { FaShoppingCart } from 'react-icons/fa';
-import { useCartStore } from '../../store/cartStore';
+import useCartStore from '../../store/cartStore';
 
 function Cart() {
-  const { count } = useCartStore();
+  const count = useCartStore((state) => state.count) || 0; // Fallback til 0 hvis count ikke er definert
 
   return (
-    <div className={`relative text-2xl cursor-pointer transition-colors duration-300 ${
-      count > 0 ? 'text-cta' : 'text-card'
-    }`}
-  >
+    <div 
+      className={`relative text-2xl cursor-pointer transition-colors duration-300 ${
+        count > 0 ? 'text-cta' : 'text-card'
+      }`}
+      aria-label={`Cart with ${count} item${count === 1 ? '' : 's'}`}
+    >
       <span className="sr-only">Cart</span>
       <FaShoppingCart />
       {count > 0 && (
-        <span className="absolute -top-2 -right-2 bg-navigation text-hover text-xs w-4 h-4 flex items-center justify-center rounded-full">
+        <span 
+          className="absolute -top-2 -right-2 bg-navigation text-hover text-xs w-4 h-4 flex items-center justify-center rounded-full"
+        >
           {count}
         </span>
       )}

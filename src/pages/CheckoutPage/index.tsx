@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 //import * as yup from 'yup';
 
-import { useCartStore } from "../../store/cartStore";
+import useCartStore  from "../../store/cartStore";
 //import { GradientButton } from "../../styles/GradientButton";
 import GradientHeading from "../../styles/GradientHeading";
 import { useState } from 'react';
