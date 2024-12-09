@@ -4,6 +4,7 @@ import { ProductPrice } from '../ProductPrice';
 import { GradientButton } from '../../styles/GradientButton';
 import { FaShoppingCart } from 'react-icons/fa';
 import  useCartStore  from '../../store/cartStore';
+import ProductRating from '../ProductRating';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   // Zustand store to add product to cart
@@ -21,9 +22,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
           <h2 className="text-lg font-bold mb-2 text-primary">{product.title}</h2>
           <p className="text-sm text-primary mb-2">{product.description}</p>
           <ProductPrice product={product} />
-          <p className="text-sm italic text-gray-500 mt-1">
-            Rating: {product.rating}/5
-          </p>
+          <ProductRating rating={product.rating} />
         </div>
         <div className="flex justify-end items-center mb-4 gap-4">
           <button
