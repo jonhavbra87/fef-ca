@@ -29,6 +29,19 @@ const Carousel = () => {
     }
   }, [products]);
 
+  // Ato loading of images
+  useEffect (() => {
+const interval = setInterval(() => {
+  setDirection('right');
+  setCurrentIndex((prevIndex) =>
+    prevIndex + 1 === images.length ? 0 : prevIndex + 1
+  );
+}, 5000);
+
+return () => clearInterval(interval);
+  }, [images]);
+
+
   if (isLoading) {
     return <Loader />;
   }
@@ -59,12 +72,12 @@ const Carousel = () => {
     },
   };
 
-  const slidersVariants = {
+/*   const slidersVariants = {
     hover: {
       scale: 1.2,
       backgroundColor: '#845162',
     },
-  };
+  }; */
 
   const dotsVariants = {
     initial: { y: 0 },
@@ -75,7 +88,7 @@ const Carousel = () => {
   };
 
   // Navigation Handlers
-  const handleNext = () => {
+/*   const handleNext = () => {
     setDirection('right');
     setCurrentIndex((prevIndex) =>
       prevIndex + 1 === images.length ? 0 : prevIndex + 1
@@ -87,7 +100,7 @@ const Carousel = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
     );
-  };
+  }; */
 
   const handleDotClick = (index: number) => {
     setDirection(index > currentIndex ? 'right' : 'left');
@@ -108,7 +121,7 @@ const Carousel = () => {
             className="w-full h-96 object-cover rounded-lg"
           />
         </AnimatePresence>
-        <div className="slide_direction absolute top-1/2 left-0 right-0 flex justify-between px-4">
+       {/*  <div className="slide_direction absolute top-1/2 left-0 right-0 flex justify-between px-4">
           <motion.div
             variants={slidersVariants}
             whileHover="hover"
@@ -139,13 +152,13 @@ const Carousel = () => {
               <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
             </svg>
           </motion.div>
-        </div>
+        </div> */}
       </div>
       <div className="carousel-indicator mt-4 flex justify-center gap-2">
         {images.map((_, index) => (
           <motion.div
             key={index}
-            className={`dot w-3 h-3 rounded-full bg-secondary ${currentIndex === index ? 'bg-plum' : ''}`}
+            className={`dot w-3 h-3 rounded-full bg-card ${currentIndex === index ? 'bg-primary' : ''}`}
             onClick={() => handleDotClick(index)}
             initial="initial"
             animate={currentIndex === index ? 'animate' : ''}
