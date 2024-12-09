@@ -4,8 +4,11 @@ import useApi from '../../hooks/useApi';
 import { BASE_API_URL } from '../../api/apiConfig';
 import { Product } from '../../types/product';
 import Loader from '../../styles/Loader';
+import { useNavigate } from 'react-router-dom';
 
 const Carousel = () => {
+  const navigate = useNavigate();
+
   // Use your `useApi` hook to fetch product data
   const {
     data: products,
@@ -13,8 +16,8 @@ const Carousel = () => {
     isError,
   } = useApi<Product[]>(`${BASE_API_URL}`);
 
-  // State to hold images of products
-  const [images, setImages] = useState<string[]>([]);
+  // State to hold randomly selected products
+  const [randomProducts, setRandomsProducts] = useState<Product[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<string | null>(null);
 
@@ -25,28 +28,27 @@ const Carousel = () => {
       const shuffled = [...products]
         .sort(() => 0.5 - Math.random())
         .slice(0, 5);
-      setImages(shuffled.map((product) => product.image.url));
+      setRandomsProducts(shuffled);
     }
   }, [products]);
 
-  // Ato loading of images
-  useEffect (() => {
-const interval = setInterval(() => {
-  setDirection('right');
-  setCurrentIndex((prevIndex) =>
-    prevIndex + 1 === images.length ? 0 : prevIndex + 1
-  );
-}, 5000);
+  // Auto-slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection('right');
+      setCurrentIndex((prevIndex) =>
+        prevIndex + 1 === (randomProducts.length || 0) ? 0 : prevIndex + 1
+      );
+    }, 5000);
 
-return () => clearInterval(interval);
-  }, [images]);
-
+    return () => clearInterval(interval);
+  }, [randomProducts]);
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (isError) {
+  if (isError || !randomProducts || randomProducts.length === 0) {
     return <div>Error loading products for carousel.</div>;
   }
 
@@ -72,13 +74,6 @@ return () => clearInterval(interval);
     },
   };
 
-/*   const slidersVariants = {
-    hover: {
-      scale: 1.2,
-      backgroundColor: '#845162',
-    },
-  }; */
-
   const dotsVariants = {
     initial: { y: 0 },
     animate: {
@@ -88,86 +83,70 @@ return () => clearInterval(interval);
   };
 
   // Navigation Handlers
-/*   const handleNext = () => {
-    setDirection('right');
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 1 === images.length ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevious = () => {
-    setDirection('left');
-    setCurrentIndex((prevIndex) =>
-      prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
-    );
-  }; */
-
   const handleDotClick = (index: number) => {
     setDirection(index > currentIndex ? 'right' : 'left');
     setCurrentIndex(index);
   };
 
+  const handleViewProduct = () => {
+    // Navigate to the product details page of the current product
+    const product = randomProducts[currentIndex];
+    if (product) {
+      navigate(`/product/${product.id}`);
+    }
+  };
+
   return (
-    <div className="carousel max-w-full mx-auto my-8">
-      <div className="carousel-images relative overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={currentIndex}
-            src={images[currentIndex]}
-            initial={direction === 'right' ? 'hiddenRight' : 'hiddenLeft'}
-            animate="visible"
-            exit="exit"
-            variants={slideVariants}
-            className="w-full h-96 object-cover rounded-lg"
-          />
-        </AnimatePresence>
-       {/*  <div className="slide_direction absolute top-1/2 left-0 right-0 flex justify-between px-4">
-          <motion.div
-            variants={slidersVariants}
-            whileHover="hover"
-            className="left bg-primary rounded-full p-2 cursor-pointer"
-            onClick={handlePrevious}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="20"
-              viewBox="0 96 960 960"
-              width="20"
-            >
-              <path d="M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z" />
-            </svg>
-          </motion.div>
-          <motion.div
-            variants={slidersVariants}
-            whileHover="hover"
-            className="right bg-primary rounded-full p-2 cursor-pointer"
-            onClick={handleNext}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="20"
-              viewBox="0 96 960 960"
-              width="20"
-            >
-              <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
-            </svg>
-          </motion.div>
-        </div> */}
-      </div>
-      <div className="carousel-indicator mt-4 flex justify-center gap-2">
-        {images.map((_, index) => (
-          <motion.div
-            key={index}
-            className={`dot w-3 h-3 rounded-full bg-card ${currentIndex === index ? 'bg-primary' : ''}`}
-            onClick={() => handleDotClick(index)}
-            initial="initial"
-            animate={currentIndex === index ? 'animate' : ''}
-            whileHover="hover"
-            variants={dotsVariants}
-          ></motion.div>
-        ))}
-      </div>
-    </div>
+<div className="carousel max-w-full mx-auto my-8">
+  <div className="carousel-images relative overflow-hidden">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={currentIndex}
+        initial={direction === 'right' ? 'hiddenRight' : 'hiddenLeft'}
+        animate="visible"
+        exit="exit"
+        variants={slideVariants}
+        className="relative"
+      >
+        {/* Image */}
+        <motion.img
+          src={randomProducts[currentIndex].image.url}
+          className="w-full h-96 object-cover rounded-lg"
+        />
+
+        {/* Button */}
+        <motion.button
+          onClick={handleViewProduct}
+          className="absolute bottom-4 right-4 bg-hover/30 backdrop-blur-md border border-white/50 shadow-lg text-black font-semibold px-8 py-2 rounded-lg hover:bg-hover/60 hover:shadow-xl transition-all duration-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
+          View
+        </motion.button>
+      </motion.div>
+    </AnimatePresence>
+  </div>
+
+  {/* Dots */}
+  <div className="carousel-indicator mt-4 flex justify-center gap-2">
+    {randomProducts.map((_, index) => (
+      <motion.div
+        key={index}
+        className={`dot w-3 h-3 rounded-full bg-card ${
+          currentIndex === index ? 'bg-primary' : ''
+        }`}
+        onClick={() => handleDotClick(index)}
+        initial="initial"
+        animate={currentIndex === index ? 'animate' : ''}
+        whileHover="hover"
+        variants={dotsVariants}
+      ></motion.div>
+    ))}
+  </div>
+</div>
+
   );
 };
 
