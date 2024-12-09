@@ -9,7 +9,7 @@ export default {
         background: '#F4E2D1',
         primary: '#423736',
         secondary: '#987185',
-        card: 'E9D5B7',
+        card: '#E9D5B7',
         hover: '#D6AA9F',
       },
     },

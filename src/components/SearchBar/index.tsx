@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SearchButton } from '../../styles/SearchButton';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -26,15 +27,14 @@ function SearchBar({ onSearch }: SearchBarProps) {
         value={query}
         onChange={handleInputChange}
         onKeyUp={handleSearch}
-        className="rounded-s-md grow border border-cta text-se p-2"
+        className="rounded-s-md grow border border-navigation text-primary p-2"
       />
 
-      <button
+      <SearchButton
         onClick={handleSearch}
-        className="w-16 rounded-e-md text-white bg-cta hover:bg-cta hover:bg-opacity-80 transition duration-300"
       >
         Search
-      </button>
+      </SearchButton>
     </div>
   );
 }

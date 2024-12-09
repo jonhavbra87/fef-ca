@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-navigation: #423736;
+  --color-cta: #987185;
+  --color-background: #f4e2d1;
+  --color-primary: #423736;
+  --color-secondary: #987185;
+  --color-card: #e9d5b7;
+  --color-hover: #d6aa9f;
+}
+
 nav a.active {
   text-decoration: line-through;
 }
