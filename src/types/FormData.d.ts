@@ -1,6 +1,6 @@
-interface FormData {
+export interface FormData {
   firstName: string;
   age: number;
 }
 
-export default FormData;
+

@@ -1,42 +1,89 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { Product } from '../types/product';
-import CartStore from '../types/CartStore.d';
 
-export const useCartStore = create(
-  persist<CartStore>(
+// Definer typen for Zustand-butikken
+interface CartStore {
+  items: Product[];
+  total: number;
+  count: number;
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: string) => void;
+  updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
+}
+
+// Beregn totalbeløpet for handlekurven
+const calculateTotal = (items: Product[]) =>
+  items.reduce((total, item) => total + item.discountedPrice * (item.quantity || 1), 0);
+
+const useCartStore = create<CartStore>()(
+  persist(
     (set) => ({
-      items: [],
-      count: 0,
-      // total: 0,?
+      items: [], // Liste over produkter i handlekurven
+      total: 0, // Totalbeløpet for handlekurven
+      count: 0, // Antall produkter i handlekurven
 
-      // Adds a product to the cart
-      addToCart: (product: Product) =>
+      // Legg til et produkt i handlekurven
+      addToCart: (product: Product) => {
         set((state) => {
-          // Check if the item already exists in the cart
-          const itemExists = state.items.some((item) => item.id === product.id);
-          if (itemExists) {
-            return state; // Do not add duplicate items
+          const existingProduct = state.items.find((item) => item.id === product.id);
+
+          if (existingProduct) {
+            existingProduct.quantity = (existingProduct.quantity || 1) + 1;
+          } else {
+            state.items.push({ ...product, quantity: 1 });
           }
+
           return {
-            items: [...state.items, product],
-            count: state.count + 1,
+            items: [...state.items],
+            count: state.items.reduce((total, item) => total + (item.quantity || 1), 0),
+            total: calculateTotal(state.items),
           };
+        });
+      },
+
+      // Fjern et produkt fra handlekurven
+      removeFromCart: (productId: string) => {
+        set((state) => {
+          const filteredItems = state.items.filter((item) => item.id !== productId);
+
+          return {
+            items: filteredItems,
+            count: filteredItems.reduce((total, item) => total + (item.quantity || 1), 0),
+            total: calculateTotal(filteredItems),
+          };
+        });
+      },
+
+      // Oppdater antall for et produkt
+      updateQuantity: (productId: string, quantity: number) => {
+        set((state) => {
+          const updatedItems = state.items.map((item) =>
+            item.id === productId ? { ...item, quantity } : item
+          );
+
+          return {
+            items: updatedItems,
+            count: updatedItems.reduce((total, item) => total + (item.quantity || 1), 0),
+            total: calculateTotal(updatedItems),
+          };
+        });
+      },
+
+      // Tøm hele handlekurven
+      clearCart: () =>
+        set({
+          items: [],
+          total: 0,
+          count: 0,
         }),
-
-      // Removes a product from the cart
-      removeFromCart: (productId: string) =>
-        set((state) => ({
-          items: state.items.filter((item) => item.id !== productId),
-          count: state.count > 0 ? state.count - 1 : 0,
-        })),
-
-      // Clears the entire cart
-      clearCart: () => set({ items: [], count: 0 }), // Empty the cart
     }),
     {
-      name: 'cart-storage', // Name of the storage key
-      storage: createJSONStorage(() => localStorage), // Use localStorage
+      name: 'cart-storage', // Navnet på lagringsnøkkelen
+      storage: createJSONStorage(() => localStorage), // Bruk localStorage for persistens
     }
   )
 );
+
+export default useCartStore;

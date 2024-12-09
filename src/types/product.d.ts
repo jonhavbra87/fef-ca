@@ -11,6 +11,7 @@ export interface Product {
   rating: number;
   tags: string[];
   reviews: Review[];
+  quantity?: number;
 }
 
 export interface Review {

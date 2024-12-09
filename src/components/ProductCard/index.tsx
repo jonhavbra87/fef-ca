@@ -3,7 +3,7 @@ import { Product } from '../../types/product';
 import { ProductPrice } from '../ProductPrice';
 import { GradientButton } from '../../styles/GradientButton';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useCartStore } from '../../store/cartStore';
+import  useCartStore  from '../../store/cartStore';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   // Zustand store to add product to cart

@@ -4,7 +4,7 @@ import { BASE_API_URL } from '../../api/apiConfig';
 import { ProductPrice } from '../../components/ProductPrice';
 import { Product } from '../../types/product';
 import { GradientButton } from '../../styles/GradientButton';
-import { useCartStore } from '../../store/cartStore'; // Import the Zustand store
+import  useCartStore  from '../../store/cartStore'; // Import the Zustand store
 import Loader from '../../styles/StyledLoader';
 import GradientHeading from '../../styles/GradientHeading';
 
