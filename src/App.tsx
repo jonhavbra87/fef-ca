@@ -9,6 +9,7 @@ import CartPage from './pages/CartPage';
 import NotFound from './pages/NotFound';
 //import CheckoutSuccess from './pages/CheckoutSuccess';
 import CheckoutPage from './pages/CheckoutPage';
+import CheckoutSuccess from './pages/CheckoutSuccess';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="checkoutpage" element={<CheckoutPage />} />
+          <Route path="checkoutsuccess" element={<CheckoutSuccess />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

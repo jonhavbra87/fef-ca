@@ -6,44 +6,7 @@ import useCartStore  from "../../store/cartStore";
 //import { GradientButton } from "../../styles/GradientButton";
 import GradientHeading from "../../styles/GradientHeading";
 import { useState } from 'react';
-
-
-/* 
-const schema = yup.
-object({
-  firstName: yup
-    .string()
-    .min(3, 'Your first name should be at least 2 characters.')
-    .required('Please enter your first name'),
-  lastName: yup
-    .string()
-    .min(3, 'Your last name should be at least 2 characters.')
-    .required('Please enter your last name'),
-  address: yup
-    .string()
-    .min(5, 'Your address should be at least 5 characters.')
-    .required('Please enter your address'),
-  postcode: yup
-    .string()
-    .min(4, 'Your postcode should be a number of 4 digits.')
-    .required('Please enter your postcode'),
-  country: yup
-    .string()
-    .required('Please enter your country'),
-  email: yup
-    .string()
-    .email('Please enter a valid email address')
-    .required('Please enter your email address'),
-  paymentMethod: yup
-    .string()
-    .required('Please select a payment method'),
-}).required();
-
-
-type FormData = yup.InferType<typeof schema>;
- */
-
-//  useForm<FormData>({  resolver: yupResolver(schema),
+import { useNavigate } from 'react-router-dom';
 
 
 type FormData = {
@@ -56,10 +19,11 @@ type FormData = {
   paymentMethod: string;
 };
 
+
 const paymentMethods = ['Visa', 'Mastercard', 'PayPal', 'Vipps'];
 
 function CheckoutPage() {
-    
+  const navigate = useNavigate(); 
     const { items, clearCart } = useCartStore();
     const subtotal = items.reduce((total, item) => total + item.discountedPrice, 0);
     const shippingCost = 8; // Eksempelverdi
@@ -92,6 +56,8 @@ function CheckoutPage() {
         reset();
         clearCart();
         setIsSubmitting(false);
+        // Naviger til checkout success
+      navigate('/checkoutsuccess'); 
       }
       , 450);
     };
