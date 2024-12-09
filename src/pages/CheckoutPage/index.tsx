@@ -119,7 +119,7 @@ function CheckoutPage() {
                   message: 'Your first name should be at least 2 characters',
                 },
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
             {errors.firstName && <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>}
           </div>
@@ -135,7 +135,7 @@ function CheckoutPage() {
                   message: 'Your last name should be at least 2 characters',
                 },
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
             {errors.lastName && <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>}
           </div>
@@ -152,7 +152,7 @@ function CheckoutPage() {
                 message: 'Your address should be at least 5 characters',
               },
             })}
-            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
+            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
           />
           {errors.address && <p className="mt-1 text-sm text-red-600">{errors.address.message}</p>}
         </div>
@@ -169,7 +169,7 @@ function CheckoutPage() {
                   message: 'Your postcode should be at least 4 characters',
                 },
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
             {errors.postcode && <p className="mt-1 text-sm text-red-600">{errors.postcode.message}</p>}
           </div>
@@ -179,7 +179,7 @@ function CheckoutPage() {
             <input
               id="country"
               {...register('country', { required: 'Please enter your country' })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
             {errors.country && <p className="mt-1 text-sm text-red-600">{errors.country.message}</p>}
           </div>
@@ -197,7 +197,7 @@ function CheckoutPage() {
                 message: 'Please enter a valid email address',
               },
             })}
-            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-rosewood"
+            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
           />
           {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
         </div>
@@ -212,7 +212,7 @@ function CheckoutPage() {
                   type="radio"
                   value={method}
                   {...register('paymentMethod', { required: 'Please select a payment method' })}
-                  className="text-rosewood focus:ring-rosewood"
+                  className="text-cta focus:ring-cta"
                 />
                 {method}
               </label>
@@ -246,7 +246,7 @@ function CheckoutPage() {
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="w-full py-4 bg-background text-white rounded-md"
+          className="w-full py-4 bg-cta text-white rounded-md"
         >
           {isSubmitting ? 'Placing order...' : 'Place Order'}
         </button>

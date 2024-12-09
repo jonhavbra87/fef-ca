@@ -26,12 +26,12 @@ function SearchBar({ onSearch }: SearchBarProps) {
         value={query}
         onChange={handleInputChange}
         onKeyUp={handleSearch}
-        className="rounded-s-md grow border border-rosewood text-background p-2"
+        className="rounded-s-md grow border border-cta text-se p-2"
       />
 
       <button
         onClick={handleSearch}
-        className="w-16 rounded-e-md bg-rosewood hover:bg-rosewood hover:bg-opacity-60 transition duration-300"
+        className="w-16 rounded-e-md text-white bg-cta hover:bg-cta hover:bg-opacity-80 transition duration-300"
       >
         Search
       </button>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GradientButton = styled.button`
-  background: linear-gradient(50deg, #150016, #29104a, #ffe3d8);
+  background: linear-gradient(50deg, #522C5D, #987185, #F4E2D1);
   color: #fff;
   padding: 12px 24px;
   font-weight: bold;
@@ -18,6 +18,6 @@ export const GradientButton = styled.button`
     transform: scale(1.01);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     background-position: right;
-    color: #150016;
+    color: #423736;
   }
 `;

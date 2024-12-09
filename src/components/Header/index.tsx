@@ -4,7 +4,7 @@ import NavBar from '../NavBar';
 
 function Header() {
   return (
-    <header className="bg-background w-full flex items-center fixed top-0 justify-between p-4 h-16 shadow-md z-50">
+    <header className="bg-navigation w-full flex items-center fixed top-0 justify-between p-4 h-16 shadow-md z-50">
       {/* Left: Logo */}
       <div className="flex items-center">
         <Link to="/">

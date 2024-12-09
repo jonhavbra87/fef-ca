@@ -8,6 +8,7 @@ export const useCartStore = create(
     (set) => ({
       items: [],
       count: 0,
+      // total: 0,?
 
       // Adds a product to the cart
       addToCart: (product: Product) =>

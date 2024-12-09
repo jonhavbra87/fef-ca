@@ -56,12 +56,12 @@ function CartPage() {
         value={couponCode}
         onChange={handleCouponChange}
         placeholder="Enter Coupon Code"
-          className="rounded-s-md grow border border-rosewood text-background p-2"
+          className="rounded-s-md grow border border-cta text-primary p-2"
         />
 
         <button
 
-          className="rounded-e-md bg-rosewood w-auto text-2xl text-white text-bold p-3 hover:bg-rosewood hover:bg-opacity-60 transition duration-300"
+          className="rounded-e-md bg-cta w-auto text-2xl text-white text-bold p-3 hover:bg-cta hover:bg-opacity-60 transition duration-300"
         >
           <IoAdd />
         </button>

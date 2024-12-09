@@ -30,7 +30,7 @@ export const NavMenu = styled.nav<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
-  background-color: #150016;
+  background-color: #423736;
   padding: 1rem;
   position: absolute;
   top: 4rem;

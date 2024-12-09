@@ -44,7 +44,7 @@ function ProductDetails() {
           className="w-full h-64 object-cover mb-4 rounded-lg"
         />
 
-        <p className="text-md text-background mb-4">{product.description}</p>
+        <p className="text-md text-primary mb-4">{product.description}</p>
 
         <div className="mb-4 text-lg">
           <ProductPrice product={product} />

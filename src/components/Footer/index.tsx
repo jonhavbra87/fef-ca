@@ -3,7 +3,7 @@ import Logo from '../../assets/eCom_logo.svg';
 
 function Footer() {
   return (
-    <footer className="bg-rosewood p-5 text-white w-full static">
+    <footer className="bg-navigation p-5 text-white w-full static">
       <div className="flex flex-col md:flex-row md:justify-between items-center gap-8 md:gap-0">
         {/* Left Section: Logo */}
         <div className="flex items-center justify-center h-auto">
@@ -24,7 +24,7 @@ function Footer() {
               <input
                 type="email"
                 name="email"
-                className="rounded-md border border-rosewood p-2 ml-2"
+                className="rounded-md border border-cta p-2 ml-2"
                 id="emailSignup"
                 placeholder="Email"
                 required
@@ -32,7 +32,7 @@ function Footer() {
             </label>
             <input
               type="submit"
-              className="bg-rosewood text-white px-4 py-2 rounded-md cursor-pointer hover:bg-opacity-80 transition duration-300 uppercase"
+              className="bg-cta text-white px-4 py-2 rounded-md cursor-pointer hover:bg-opacity-80 transition duration-300 uppercase"
               value="Abonner"
             />
           </form>
@@ -46,7 +46,7 @@ function Footer() {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blush transition-colors duration-300"
+                className="hover:text-secondary transition-colors duration-300"
               >
                 <FaInstagram />
               </a>
@@ -54,7 +54,7 @@ function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blush transition-colors duration-300"
+                className="hover:text-secondary transition-colors duration-300"
               >
                 <FaTwitter />
               </a>
@@ -62,7 +62,7 @@ function Footer() {
                 href="https://www.snapchat.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blush transition-colors duration-300"
+                className="hover:text-secondary transition-colors duration-300"
               >
                 <FaSnapchat />
               </a>

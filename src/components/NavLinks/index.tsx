@@ -6,7 +6,7 @@ function NavLinks({ closeMenu }: { closeMenu: () => void }) {
       {/* Hjem-lenke */}
       <NavLink
         to="/"
-        className="text-cream text-lg hover:text-blush transition-colors duration-200"
+        className="text-white text-lg hover:text-secondary transition-colors duration-200"
         onClick={closeMenu}
       >
         Home
@@ -15,7 +15,7 @@ function NavLinks({ closeMenu }: { closeMenu: () => void }) {
       {/* Kontakt-lenke */}
       <NavLink
         to="/contact"
-        className="text-cream text-lg hover:text-blush transition-colors duration-200"
+        className="text-white text-lg hover:text-secondary transition-colors duration-200"
         onClick={closeMenu}
       >
         Contact

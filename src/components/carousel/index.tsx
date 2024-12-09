@@ -112,7 +112,7 @@ const Carousel = () => {
           <motion.div
             variants={slidersVariants}
             whileHover="hover"
-            className="left bg-cream rounded-full p-2 cursor-pointer"
+            className="left bg-primary rounded-full p-2 cursor-pointer"
             onClick={handlePrevious}
           >
             <svg
@@ -127,7 +127,7 @@ const Carousel = () => {
           <motion.div
             variants={slidersVariants}
             whileHover="hover"
-            className="right bg-cream rounded-full p-2 cursor-pointer"
+            className="right bg-primary rounded-full p-2 cursor-pointer"
             onClick={handleNext}
           >
             <svg
@@ -145,7 +145,7 @@ const Carousel = () => {
         {images.map((_, index) => (
           <motion.div
             key={index}
-            className={`dot w-3 h-3 rounded-full bg-blush ${currentIndex === index ? 'bg-plum' : ''}`}
+            className={`dot w-3 h-3 rounded-full bg-secondary ${currentIndex === index ? 'bg-plum' : ''}`}
             onClick={() => handleDotClick(index)}
             initial="initial"
             animate={currentIndex === index ? 'animate' : ''}

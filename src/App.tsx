@@ -12,7 +12,7 @@ import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   return (
-    <div className="bg-white text-background">
+    <div className="text-primary">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Products />} />

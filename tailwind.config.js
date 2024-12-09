@@ -4,12 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#150016',
-        deepPurple: '#29104A',
-        plum: '#522C5D',
-        rosewood: '#845162',
-        blush: '#E3B6B1',
-        cream: '#FFE3D8',
+        navigation: '#423736',
+        cta: '#987185',
+        background: '#F4E2D1',
+        primary: '#423736',
+        secondary: '#987185',
+        card: 'E9D5B7',
+        hover: '#D6AA9F',
       },
     },
   },

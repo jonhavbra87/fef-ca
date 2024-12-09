@@ -18,7 +18,7 @@ function NavBar() {
       {/* Cart Icon - Synlig hele tiden, både på mobil og desktop */}
       <Link
         to="/cart"
-        className="relative text-cream text-2xl cursor-pointer"
+        className="relative text-primary text-2xl cursor-pointer"
         onClick={closeMenu}
       >
         <span className="sr-only">Cart</span>
