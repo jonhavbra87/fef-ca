@@ -72,7 +72,7 @@ function Contact() {
           <div className="flex flex-col">
             <label
               htmlFor="firstName"
-              className="mb-1 font-semibold text-primary text-lg lg:text-xl"
+              className="mb-1 font-semibold text-background text-lg lg:text-xl"
             >
               First Name
             </label>
@@ -92,7 +92,7 @@ function Contact() {
           <div className="flex flex-col">
             <label
               htmlFor="lastName"
-              className="mb-1 font-semibold text-primary text-lg lg:text-xl"
+              className="mb-1 font-semibold text-background text-lg lg:text-xl"
             >
               Last Name
             </label>
@@ -113,7 +113,7 @@ function Contact() {
         <div className="flex flex-col">
           <label
             htmlFor="email"
-            className="mb-1 font-semibold text-primary text-lg lg:text-xl"
+            className="mb-1 font-semibold text-background text-lg lg:text-xl"
           >
             Email
           </label>
@@ -132,7 +132,7 @@ function Contact() {
         <div className="flex flex-col">
           <label
             htmlFor="body"
-            className="mb-1 font-semibold text-primary text-lg lg:text-xl"
+            className="mb-1 font-semibold text-background text-lg lg:text-xl"
           >
             Message
           </label>
