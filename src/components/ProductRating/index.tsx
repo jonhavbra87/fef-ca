@@ -26,5 +26,4 @@ function ProductRating({ rating }: { rating: number }) {
   );
 }
 
-
 export default ProductRating;

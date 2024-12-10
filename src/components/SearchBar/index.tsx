@@ -30,11 +30,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
         className="rounded-s-md grow border border-navigation text-primary p-2"
       />
 
-      <SearchButton
-        onClick={handleSearch}
-      >
-        Search
-      </SearchButton>
+      <SearchButton onClick={handleSearch}>Search</SearchButton>
     </div>
   );
 }

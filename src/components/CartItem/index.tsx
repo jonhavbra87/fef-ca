@@ -51,7 +51,9 @@ const CartItem = ({ product }: { product: Product }) => {
             >
               -
             </button>
-            <span className="text-primary font-bold">{product.quantity || 1}</span>
+            <span className="text-primary font-bold">
+              {product.quantity || 1}
+            </span>
             <button
               onClick={incrementQuantity}
               className="bg-cta text-white px-2 py-1 rounded-lg hover:bg-purple-700 transition-colors"

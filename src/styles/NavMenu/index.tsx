@@ -1,4 +1,4 @@
-// src/styles/NavBarStyles.ts
+/* // src/styles/NavBarStyles.ts
 import styled, { keyframes } from 'styled-components';
 
 // Definerer en keyframe for å animere menyen
@@ -26,8 +26,8 @@ const slideUp = keyframes`
   `;
 
 // Styled komponent for navigasjonsmenyen
-export const NavMenu = styled.nav<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+export const NavMenu = styled.nav<{ menuOpen: boolean }>`
+  display: ${({ menuOpen }) => (menuOpen ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
   background-color: #423736;
@@ -40,8 +40,7 @@ export const NavMenu = styled.nav<{ isOpen: boolean }>`
   gap: 1rem;
   overflow: hidden;
 
-  /* Animasjon: Bruker slideDown når menyen åpnes og slideUp når den lukkes */
-  animation: ${({ isOpen }) => (isOpen ? slideDown : slideUp)} 0.5s ease-in-out;
+  animation: ${({ menuOpen }) => (menuOpen ? slideDown : slideUp)} 0.5s ease-in-out;
 
   @media (min-width: 768px) {
     display: flex;
@@ -51,3 +50,4 @@ export const NavMenu = styled.nav<{ isOpen: boolean }>`
     animation: none;
   }
 `;
+ */

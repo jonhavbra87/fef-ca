@@ -3,7 +3,7 @@ import { Product } from '../../types/product';
 import { ProductPrice } from '../ProductPrice';
 import { GradientButton } from '../../styles/GradientButton';
 import { FaShoppingCart } from 'react-icons/fa';
-import  useCartStore  from '../../store/cartStore';
+import useCartStore from '../../store/cartStore';
 import ProductRating from '../ProductRating';
 
 export const ProductCard = ({ product }: { product: Product }) => {
@@ -19,7 +19,9 @@ export const ProductCard = ({ product }: { product: Product }) => {
           className="mb-4 w-full h-64 object-cover rounded-md"
         />
         <div className="px-4">
-          <h2 className="text-lg font-bold mb-2 text-primary">{product.title}</h2>
+          <h2 className="text-lg font-bold mb-2 text-primary">
+            {product.title}
+          </h2>
           <p className="text-sm text-primary mb-2">{product.description}</p>
           <ProductPrice product={product} />
           <ProductRating rating={product.rating} />

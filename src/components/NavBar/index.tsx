@@ -1,40 +1,63 @@
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { FiX } from 'react-icons/fi';
-import Cart from '../Cart';
 import NavLinks from '../NavLinks';
-import { Link } from 'react-router-dom';
-import useMenu from '../../hooks/useMenu';
-import { HamburgerIcon } from '../../styles/HamburgerIcon';
-import { NavMenu } from '../../styles/NavMenu';
+import { useState, useRef, useEffect } from 'react';
 
 function NavBar() {
-  const { isOpen, toggleMenu, closeMenu, menuRef } = useMenu();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  function toggleMenu() {
+    setMenuOpen((prev) => !prev);
+  }
+
+  // Fokusstyring og Escape-tast for å lukke menyen
+  useEffect(() => {
+    if (menuOpen) {
+      menuRef.current?.focus();
+    }
+  }, [menuOpen]);
 
   return (
-    <div
-      ref={menuRef}
-      className="flex items-center justify-end w-full gap-x-4 md:space-x-6"
-    >
-      {/* Cart Icon - Synlig hele tiden, både på mobil og desktop */}
-      <Link
-        to="/cart"
-        className="relative text-primary text-2xl cursor-pointer"
-        onClick={closeMenu}
-      >
-        <span className="sr-only">Cart</span>
-        <Cart />
-      </Link>
+    <>
+      <nav className="z-50">
+        {/* Hamburger/lukk-knapp */}
+        <div>
+          <button
+            className={`text-hover text-2xl md:hidden transition-transform duration-500 ${
+              menuOpen ? 'rotate-90' : 'rotate-0'
+            }`}
+            onClick={toggleMenu}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
 
-      {/* Hamburger Icon - Kun synlig på mobil */}
-      <HamburgerIcon i={isOpen} onClick={toggleMenu}>
-        {isOpen ? <FiX /> : <HiOutlineMenuAlt2 />}
-      </HamburgerIcon>
+          >
+            {menuOpen ? <FiX /> : <HiOutlineMenuAlt2 />}
+          </button>
+        </div>
 
-      {/* Navigation Menu - viser seg når `isOpen` er true eller på desktop */}
-      <NavMenu isOpen={isOpen}>
-        <NavLinks closeMenu={closeMenu} />
-      </NavMenu>
-    </div>
+        {/* Menyen */}
+        {menuOpen && (
+          <div
+            ref={menuRef}
+            tabIndex={-1}
+            className="absolute top-16 left-0 right-0 bg-navigation p-4 flex flex-col items-center gap-4 animate-slide-down md:flex md:flex-row md:static md:gap-6"
+            onKeyDown={(e) => e.key === 'Escape' && setMenuOpen(false)}
+          >
+            <NavLinks toggleMenu={toggleMenu} />
+          </div>
+        )}
+      </nav>
+
+      {/* Overlay */}
+      {menuOpen && (
+        <div
+          className="absolute top-0 left-0 h-dvh w-dvw bg-black bg-opacity-50 z-30 md:hidden"
+          onClick={toggleMenu}
+          aria-hidden={!menuOpen}
+        ></div>
+      )}
+    </>
   );
 }
 

@@ -2,12 +2,11 @@
 import { useForm } from 'react-hook-form';
 //import * as yup from 'yup';
 
-import useCartStore  from "../../store/cartStore";
+import useCartStore from '../../store/cartStore';
 //import { GradientButton } from "../../styles/GradientButton";
-import GradientHeading from "../../styles/GradientHeading";
+import GradientHeading from '../../styles/GradientHeading';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 
 type FormData = {
   firstName: string;
@@ -19,63 +18,64 @@ type FormData = {
   paymentMethod: string;
 };
 
-
 const paymentMethods = ['Visa', 'Mastercard', 'PayPal', 'Vipps'];
 
 function CheckoutPage() {
-  const navigate = useNavigate(); 
-    const { items, clearCart } = useCartStore();
-    const subtotal = items.reduce((total, item) => total + item.discountedPrice, 0);
-    const shippingCost = 8; // Eksempelverdi
-  
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-        } = useForm<FormData>();
+  const navigate = useNavigate();
+  const { items, clearCart } = useCartStore();
+  const subtotal = items.reduce(
+    (total, item) => total + item.discountedPrice,
+    0
+  );
+  const shippingCost = 8; // Eksempelverdi
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
 
-    const onSubmit = async (data: FormData) => {
-      console.log("Form submitted");
-      console.log("Errors:", errors);
-        setIsSubmitting(true);
-        
-      const orderDetails = {
-          ...data,
-          items,
-          subtotal,
-          shippingCost,
-        };
-       console.log(orderDetails);
-        
-        // Simulate order submission
-      setTimeout(() => {
-        alert('Your order has been placed successfully!');
-        reset();
-        clearCart();
-        setIsSubmitting(false);
-        // Naviger til checkout success
-      navigate('/checkoutsuccess'); 
-      }
-      , 450);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = async (data: FormData) => {
+    console.log('Form submitted');
+    console.log('Errors:', errors);
+    setIsSubmitting(true);
+
+    const orderDetails = {
+      ...data,
+      items,
+      subtotal,
+      shippingCost,
     };
-      
+    console.log(orderDetails);
 
-    return (
-      <div className='mx-auto'>
+    // Simulate order submission
+    setTimeout(() => {
+      alert('Your order has been placed successfully!');
+      reset();
+      clearCart();
+      setIsSubmitting(false);
+      // Naviger til checkout success
+      navigate('/checkoutsuccess');
+    }, 450);
+  };
 
-          <GradientHeading>Checkout</GradientHeading>
+  return (
+    <div className="mx-auto">
+      <GradientHeading>Checkout</GradientHeading>
 
-          <form 
+      <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-8 space-y-6 p-8 max-w-xl mx-auto rounded-lg shadow-md"
       >
         {/* Address Form */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex flex-col">
-            <label htmlFor="firstName" className="mb-1 font-semibold text-lg">First Name</label>
+            <label htmlFor="firstName" className="mb-1 font-semibold text-lg">
+              First Name
+            </label>
             <input
               id="firstName"
               {...register('firstName', {
@@ -87,11 +87,17 @@ function CheckoutPage() {
               })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
-            {errors.firstName && <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>}
+            {errors.firstName && (
+              <p className="mt-1 text-sm text-red-600">
+                {errors.firstName.message}
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="lastName" className="mb-1 font-semibold text-lg">Last Name</label>
+            <label htmlFor="lastName" className="mb-1 font-semibold text-lg">
+              Last Name
+            </label>
             <input
               id="lastName"
               {...register('lastName', {
@@ -103,12 +109,18 @@ function CheckoutPage() {
               })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
-            {errors.lastName && <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>}
+            {errors.lastName && (
+              <p className="mt-1 text-sm text-red-600">
+                {errors.lastName.message}
+              </p>
+            )}
           </div>
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="address" className="mb-1 font-semibold text-lg">Address</label>
+          <label htmlFor="address" className="mb-1 font-semibold text-lg">
+            Address
+          </label>
           <input
             id="address"
             {...register('address', {
@@ -120,12 +132,18 @@ function CheckoutPage() {
             })}
             className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
           />
-          {errors.address && <p className="mt-1 text-sm text-red-600">{errors.address.message}</p>}
+          {errors.address && (
+            <p className="mt-1 text-sm text-red-600">
+              {errors.address.message}
+            </p>
+          )}
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex flex-col">
-            <label htmlFor="postcode" className="mb-1 font-semibold text-lg">Postcode</label>
+            <label htmlFor="postcode" className="mb-1 font-semibold text-lg">
+              Postcode
+            </label>
             <input
               id="postcode"
               {...register('postcode', {
@@ -137,22 +155,36 @@ function CheckoutPage() {
               })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
-            {errors.postcode && <p className="mt-1 text-sm text-red-600">{errors.postcode.message}</p>}
+            {errors.postcode && (
+              <p className="mt-1 text-sm text-red-600">
+                {errors.postcode.message}
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="country" className="mb-1 font-semibold text-lg">Country</label>
+            <label htmlFor="country" className="mb-1 font-semibold text-lg">
+              Country
+            </label>
             <input
               id="country"
-              {...register('country', { required: 'Please enter your country' })}
+              {...register('country', {
+                required: 'Please enter your country',
+              })}
               className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
             />
-            {errors.country && <p className="mt-1 text-sm text-red-600">{errors.country.message}</p>}
+            {errors.country && (
+              <p className="mt-1 text-sm text-red-600">
+                {errors.country.message}
+              </p>
+            )}
           </div>
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="email" className="mb-1 font-semibold text-lg">Email</label>
+          <label htmlFor="email" className="mb-1 font-semibold text-lg">
+            Email
+          </label>
           <input
             id="email"
             type="email"
@@ -165,7 +197,9 @@ function CheckoutPage() {
             })}
             className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
           />
-          {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+          )}
         </div>
 
         {/* Payment method */}
@@ -177,7 +211,9 @@ function CheckoutPage() {
                 <input
                   type="radio"
                   value={method}
-                  {...register('paymentMethod', { required: 'Please select a payment method' })}
+                  {...register('paymentMethod', {
+                    required: 'Please select a payment method',
+                  })}
                   className="text-cta focus:ring-cta"
                 />
                 {method}
@@ -185,7 +221,9 @@ function CheckoutPage() {
             ))}
           </div>
           {errors.paymentMethod && (
-            <p className="mt-1 text-sm text-red-600">{errors.paymentMethod.message}</p>
+            <p className="mt-1 text-sm text-red-600">
+              {errors.paymentMethod.message}
+            </p>
           )}
         </div>
 
@@ -209,8 +247,8 @@ function CheckoutPage() {
         </div>
 
         {/* Order Button */}
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           disabled={isSubmitting}
           className="w-full py-4 bg-cta text-white rounded-md"
         >
@@ -218,8 +256,7 @@ function CheckoutPage() {
         </button>
       </form>
     </div>
-    );
-    
-  }
-  
-  export default CheckoutPage;
+  );
+}
+
+export default CheckoutPage;

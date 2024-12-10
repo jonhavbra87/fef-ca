@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+/* import styled from 'styled-components';
 
 export const HamburgerIcon = styled.div<{ i: boolean }>`
   color: #987185;
@@ -11,3 +11,4 @@ export const HamburgerIcon = styled.div<{ i: boolean }>`
     display: none;
   }
 `;
+ */

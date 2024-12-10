@@ -15,7 +15,10 @@ interface CartStore {
 
 // Beregn totalbeløpet for handlekurven
 const calculateTotal = (items: Product[]) =>
-  items.reduce((total, item) => total + item.discountedPrice * (item.quantity || 1), 0);
+  items.reduce(
+    (total, item) => total + item.discountedPrice * (item.quantity || 1),
+    0
+  );
 
 const useCartStore = create<CartStore>()(
   persist(
@@ -27,7 +30,9 @@ const useCartStore = create<CartStore>()(
       // Legg til et produkt i handlekurven
       addToCart: (product: Product) => {
         set((state) => {
-          const existingProduct = state.items.find((item) => item.id === product.id);
+          const existingProduct = state.items.find(
+            (item) => item.id === product.id
+          );
 
           if (existingProduct) {
             existingProduct.quantity = (existingProduct.quantity || 1) + 1;
@@ -37,7 +42,10 @@ const useCartStore = create<CartStore>()(
 
           return {
             items: [...state.items],
-            count: state.items.reduce((total, item) => total + (item.quantity || 1), 0),
+            count: state.items.reduce(
+              (total, item) => total + (item.quantity || 1),
+              0
+            ),
             total: calculateTotal(state.items),
           };
         });
@@ -46,11 +54,16 @@ const useCartStore = create<CartStore>()(
       // Fjern et produkt fra handlekurven
       removeFromCart: (productId: string) => {
         set((state) => {
-          const filteredItems = state.items.filter((item) => item.id !== productId);
+          const filteredItems = state.items.filter(
+            (item) => item.id !== productId
+          );
 
           return {
             items: filteredItems,
-            count: filteredItems.reduce((total, item) => total + (item.quantity || 1), 0),
+            count: filteredItems.reduce(
+              (total, item) => total + (item.quantity || 1),
+              0
+            ),
             total: calculateTotal(filteredItems),
           };
         });
@@ -65,7 +78,10 @@ const useCartStore = create<CartStore>()(
 
           return {
             items: updatedItems,
-            count: updatedItems.reduce((total, item) => total + (item.quantity || 1), 0),
+            count: updatedItems.reduce(
+              (total, item) => total + (item.quantity || 1),
+              0
+            ),
             total: calculateTotal(updatedItems),
           };
         });

@@ -56,7 +56,7 @@ export const StyledLoader = styled.div`
   }
 
   &::after {
-    border-color: #D6AA9F;
+    border-color: #d6aa9f;
     animation:
       ${prixClipFix} 2s linear infinite,
       ${rotate} 0.5s linear infinite reverse;

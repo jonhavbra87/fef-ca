@@ -57,7 +57,6 @@ function Contact() {
     console.log(data);
     alert('Your message has been sent!');
     reset();
-
   }
 
   return (

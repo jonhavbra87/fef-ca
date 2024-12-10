@@ -97,56 +97,55 @@ const Carousel = () => {
   };
 
   return (
-<div className="carousel max-w-full mx-auto my-8">
-  <div className="carousel-images relative overflow-hidden">
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={currentIndex}
-        initial={direction === 'right' ? 'hiddenRight' : 'hiddenLeft'}
-        animate="visible"
-        exit="exit"
-        variants={slideVariants}
-        className="relative"
-      >
-        {/* Image */}
-        <motion.img
-          src={randomProducts[currentIndex].image.url}
-          className="w-full h-96 object-cover rounded-lg"
-        />
+    <div className="carousel max-w-full mx-auto my-8">
+      <div className="carousel-images relative overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={direction === 'right' ? 'hiddenRight' : 'hiddenLeft'}
+            animate="visible"
+            exit="exit"
+            variants={slideVariants}
+            className="relative"
+          >
+            {/* Image */}
+            <motion.img
+              src={randomProducts[currentIndex].image.url}
+              className="w-full h-96 object-cover rounded-lg"
+            />
 
-        {/* Button */}
-        <motion.button
-          onClick={handleViewProduct}
-          className="absolute bottom-4 right-4 bg-hover/30 backdrop-blur-md border border-white/50 shadow-lg text-black font-semibold px-8 py-2 rounded-lg hover:bg-hover/60 hover:shadow-xl transition-all duration-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-        >
-          View
-        </motion.button>
-      </motion.div>
-    </AnimatePresence>
-  </div>
+            {/* Button */}
+            <motion.button
+              onClick={handleViewProduct}
+              className="absolute bottom-4 right-4 bg-hover/30 backdrop-blur-md border border-white/50 shadow-lg text-black font-semibold px-8 py-2 rounded-lg hover:bg-hover/60 hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              View
+            </motion.button>
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
-  {/* Dots */}
-  <div className="carousel-indicator mt-4 flex justify-center gap-2">
-    {randomProducts.map((_, index) => (
-      <motion.div
-        key={index}
-        className={`dot w-3 h-3 rounded-full bg-card ${
-          currentIndex === index ? 'bg-primary' : ''
-        }`}
-        onClick={() => handleDotClick(index)}
-        initial="initial"
-        animate={currentIndex === index ? 'animate' : ''}
-        whileHover="hover"
-        variants={dotsVariants}
-      ></motion.div>
-    ))}
-  </div>
-</div>
-
+      {/* Dots */}
+      <div className="carousel-indicator mt-4 flex justify-center gap-2">
+        {randomProducts.map((_, index) => (
+          <motion.div
+            key={index}
+            className={`dot w-3 h-3 rounded-full bg-card ${
+              currentIndex === index ? 'bg-primary' : ''
+            }`}
+            onClick={() => handleDotClick(index)}
+            initial="initial"
+            animate={currentIndex === index ? 'animate' : ''}
+            whileHover="hover"
+            variants={dotsVariants}
+          ></motion.div>
+        ))}
+      </div>
+    </div>
   );
 };
 

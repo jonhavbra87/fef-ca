@@ -37,45 +37,43 @@ function ProductDetails() {
 
   return (
     <div className="">
-    <div className="text-center shadow z-10">
-      <GradientHeading>{product.title}</GradientHeading>
-    </div>
+      <div className="text-center shadow z-10">
+        <GradientHeading>{product.title}</GradientHeading>
+      </div>
 
-    <div className="flex flex-col md:flex-row justify-start items-start min-h-screen p-4 gap-8">
-      
-      {/* Product Image */}
-      <div className="relative w-full h-64 md:h-96">
-  <img
-    src={product.image.url}
-    alt={product.image.alt || 'Product Image'}
-    className="absolute inset-0 w-full h-full object-cover rounded-lg"
-  />
-</div>
+      <div className="flex flex-col md:flex-row justify-start items-start min-h-screen p-4 gap-8">
+        {/* Product Image */}
+        <div className="relative w-full h-64 md:h-96">
+          <img
+            src={product.image.url}
+            alt={product.image.alt || 'Product Image'}
+            className="absolute inset-0 w-full h-full object-cover rounded-lg"
+          />
+        </div>
 
         {/* <GradientHeading>{product.title}</GradientHeading> */}
 
-      {/* Product Details */}
-      <div className="md:w-1/2 w-full flex flex-col">
+        {/* Product Details */}
+        <div className="md:w-1/2 w-full flex flex-col">
+          <p className="text-md text-primary mb-4">{product.description}</p>
 
-        <p className="text-md text-primary mb-4">{product.description}</p>
+          <div className="mb-4 text-lg">
+            <ProductPrice product={product} />
+          </div>
 
-        <div className="mb-4 text-lg">
-          <ProductPrice product={product} />
-        </div>
+          <ProductRating rating={product.rating} />
+          <p className="text-sm italic text-gray-300 mb-4">
+            #{product.tags?.join(', ')}
+          </p>
 
-        <ProductRating rating={product.rating} />
-        <p className="text-sm italic text-gray-300 mb-4">
-          #{product.tags?.join(', ')}
-        </p>
+          {/* Add to Cart Button */}
+          <div className="flex justify-end mb-6">
+            <GradientButton onClick={() => addToCart(product)}>
+              Add to Cart
+            </GradientButton>
+          </div>
 
-        {/* Add to Cart Button */}
-        <div className="flex justify-end mb-6">
-          <GradientButton onClick={() => addToCart(product)}>
-            Add to Cart
-          </GradientButton>
-        </div>
-
-        {/* Reviews Section */}
+          {/* Reviews Section */}
 
           <h2 className="text-2xl font-bold mb-4">Reviews</h2>
           {product.reviews && product.reviews.length > 0 ? (
@@ -94,10 +92,9 @@ function ProductDetails() {
           ) : (
             <p className="text-gray-500 italic">No reviews yet.</p>
           )}
-       
+        </div>
       </div>
     </div>
-  </div>
   );
 }
 

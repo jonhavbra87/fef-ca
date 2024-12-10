@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GradientButton = styled.button`
-  background: linear-gradient(50deg, #522C5D, #987185, #F4E2D1);
+  background: linear-gradient(50deg, #522c5d, #987185, #f4e2d1);
   color: #fff;
   padding: 12px 24px;
   font-weight: bold;

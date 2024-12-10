@@ -7,7 +7,7 @@ const GradientHeading = styled.h1`
   text-align: center;
   text-transform: uppercase;
   margin-top: 1rem;
-  background: linear-gradient(50deg, #522C5D, #987185, #F4E2D1);
+  background: linear-gradient(50deg, #522c5d, #987185, #f4e2d1);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

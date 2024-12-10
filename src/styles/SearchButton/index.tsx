@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchButton = styled.button`
-  background: linear-gradient(50deg, #423736, #D6AA9F);
+  background: linear-gradient(50deg, #423736, #d6aa9f);
   color: #fff;
   padding: 12px 24px;
   font-weight: bold;

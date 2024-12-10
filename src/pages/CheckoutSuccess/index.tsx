@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import { GradientButton } from "../../styles/GradientButton";
+import { useNavigate } from 'react-router-dom';
+import { GradientButton } from '../../styles/GradientButton';
 
 function CheckoutSuccess() {
   const navigate = useNavigate();
@@ -8,7 +8,9 @@ function CheckoutSuccess() {
     <div>
       <h1>Checkout Success</h1>
       <p>Your order has been placed successfully.</p>
-      <GradientButton onClick={() => navigate('/')}>Back to home</GradientButton>
+      <GradientButton onClick={() => navigate('/')}>
+        Back to home
+      </GradientButton>
     </div>
   );
 }
