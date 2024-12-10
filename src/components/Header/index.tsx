@@ -5,16 +5,19 @@ import Cart from '../Cart';
 
 function Header() {
   return (
-    <header className="bg-navigation w-full flex items-center fixed top-0 justify-between p-4 h-16 shadow-md">
+    <header className="bg-navigation w-full flex items-center fixed top-0 justify-between p-4 h-16 shadow-md z-50">
       {/* Left: Logo */}
       <div className="flex items-center">
         <Link to="/">
           <img src={Logo} alt="eCom logo" className="h-14" />
         </Link>
       </div>
+      <div className='flex flex-row gap-3 items-center'>
       <Cart />
-      {/* Right: Navbar and Cart */}
       <NavBar />
+
+      </div>
+      {/* Right: Navbar and Cart */}
     </header>
   );
 }

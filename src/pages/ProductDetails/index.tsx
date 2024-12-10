@@ -37,7 +37,7 @@ function ProductDetails() {
 
   return (
     <div className="">
-      <div className="text-center shadow z-10">
+      <div className="">
         <GradientHeading>{product.title}</GradientHeading>
       </div>
 

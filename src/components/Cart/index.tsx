@@ -9,6 +9,7 @@ function Cart() {
   function handleClick() {
     navigate('/cart/');
   }
+  
   return (
     <div
       className={`relative text-2xl cursor-pointer transition-colors duration-300 ${

@@ -20,6 +20,7 @@ const GradientHeading = styled.h1`
   @media (min-width: 640px) {
     font-size: 3rem; /* Medium devices (e.g., tablets) */
   }
+    
   @media (min-width: 1024px) {
     font-size: 4rem; /* Large devices (e.g., desktops) */
   }

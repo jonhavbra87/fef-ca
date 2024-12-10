@@ -8,7 +8,7 @@ function NavBar() {
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   function toggleMenu() {
-    setMenuOpen((prev) => !prev);
+    setMenuOpen(!menuOpen);
   }
 
   // Fokusstyring og Escape-tast for å lukke menyen
@@ -30,29 +30,28 @@ function NavBar() {
             onClick={toggleMenu}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-
           >
             {menuOpen ? <FiX /> : <HiOutlineMenuAlt2 />}
           </button>
         </div>
 
         {/* Menyen */}
-        {menuOpen && (
-          <div
-            ref={menuRef}
-            tabIndex={-1}
-            className="absolute top-16 left-0 right-0 bg-navigation p-4 flex flex-col items-center gap-4 animate-slide-down md:flex md:flex-row md:static md:gap-6"
-            onKeyDown={(e) => e.key === 'Escape' && setMenuOpen(false)}
-          >
-            <NavLinks toggleMenu={toggleMenu} />
-          </div>
-        )}
+        <div
+          ref={menuRef}
+          tabIndex={-1}
+          className={`${
+            menuOpen ? 'flex' : 'hidden'
+          } absolute top-16 left-0 right-0 bg-navigation p-4 flex-col items-center gap-4 animate-slide-down md:flex md:flex-row md:static md:gap-6`}
+          onKeyDown={(e) => e.key === 'Escape' && setMenuOpen(false)}
+        >
+          <NavLinks toggleMenu={toggleMenu} />
+        </div>
       </nav>
 
       {/* Overlay */}
       {menuOpen && (
         <div
-          className="absolute top-0 left-0 h-dvh w-dvw bg-black bg-opacity-50 z-30 md:hidden"
+          className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50 z-30 md:hidden"
           onClick={toggleMenu}
           aria-hidden={!menuOpen}
         ></div>
