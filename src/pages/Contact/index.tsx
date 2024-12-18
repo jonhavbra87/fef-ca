@@ -63,7 +63,7 @@ function Contact() {
     <div>
       <GradientHeading>Contact Us</GradientHeading>
       <form
-        className="flex flex-col gap-6 p-8 max-w-xl mx-auto bg-navigation rounded-lg shadow-md 
+        className="flex flex-col gap-6 p-8 max-w-xl mx-auto bg-primary rounded-lg shadow-md 
                 md:max-w-2xl lg:max-w-3xl lg:p-10 xl:max-w-4xl xl:p-12"
         onSubmit={handleSubmit(onSubmit)}
       >

@@ -18,7 +18,7 @@ const CartItem = ({ product }: { product: Product }) => {
   };
 
   return (
-    <ul className="bg-card rounded-lg shadow-md border border-hover bg-opacity-80 mx-auto hover:shadow-lg transition-shadow py-4 mb-4">
+    <ul className="bg-base rounded-lg shadow-md border border-hover bg-opacity-80 mx-auto hover:shadow-lg transition-shadow py-4 mb-4">
       {/* Content Wrapper */}
       <div className="flex flex-col md:flex-row md:items-center gap-4">
         {/* Product Image with Clickable Link */}

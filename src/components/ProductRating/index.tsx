@@ -12,15 +12,15 @@ function ProductRating({ rating }: { rating: number }) {
       {Array(filledStars)
         .fill(0)
         .map((_, index) => (
-          <FaStar key={`filled-${index}`} className="text-cta" />
+          <FaStar key={`filled-${index}`} className="text-secondary" />
         ))}
       {/* Halv stjerne (valgfritt) */}
-      {halfStar && <FaStarHalf key="half" className="text-cta" />}
+      {halfStar && <FaStarHalf key="half" className="text-secondary" />}
       {/* Tomme stjerner */}
       {Array(emptyStars)
         .fill(0)
         .map((_, index) => (
-          <FaRegStar key={`empty-${index}`} className="text-cta" />
+          <FaRegStar key={`empty-${index}`} className="fill-neutral" />
         ))}
     </div>
   );

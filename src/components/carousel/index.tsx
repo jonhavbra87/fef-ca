@@ -117,7 +117,7 @@ const Carousel = () => {
             {/* Button */}
             <motion.button
               onClick={handleViewProduct}
-              className="absolute bottom-4 right-4 bg-hover/30 backdrop-blur-md border border-white/50 shadow-lg text-black font-semibold px-8 py-2 rounded-lg hover:bg-hover/60 hover:shadow-xl transition-all duration-300"
+              className="absolute bottom-4 right-4 bg-netralSecondary/30 backdrop-blur-md border border-white/50 shadow-lg text-black font-semibold px-8 py-2 rounded-lg hover:bg-netralSecondary/60 hover:shadow-xl transition-all duration-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -134,7 +134,7 @@ const Carousel = () => {
         {randomProducts.map((_, index) => (
           <motion.div
             key={index}
-            className={`dot w-3 h-3 rounded-full bg-card ${
+            className={`dot w-3 h-3 rounded-full bg-base ${
               currentIndex === index ? 'bg-primary' : ''
             }`}
             onClick={() => handleDotClick(index)}

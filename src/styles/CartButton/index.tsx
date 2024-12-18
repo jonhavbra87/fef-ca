@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const GradientButton = styled.button`
-  background: linear-gradient(50deg, #D72638, #F6606D, #FFC2C3);
+export const CardButton = styled.button`
+  background: linear-gradient(50deg, #D72638, #F6606D, #4A4A4A);
   color: #fff;
   padding: 12px 24px;
   font-weight: bold;
@@ -15,7 +15,6 @@ export const GradientButton = styled.button`
     color 0.5s ease-in-out 0.3s;
 
   &:hover {
-    transform: scale(1.01);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     background-position: right;
     color: #fff;

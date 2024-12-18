@@ -41,7 +41,7 @@ function NavBar() {
           tabIndex={-1}
           className={`${
             menuOpen ? 'flex' : 'hidden'
-          } absolute top-16 left-0 right-0 bg-navigation p-4 flex-col items-center gap-4 animate-slide-down md:flex md:flex-row md:static md:gap-6`}
+          } absolute top-16 left-0 right-0 bg-primary p-4 flex-col items-center gap-4 animate-slide-down md:flex md:flex-row md:static md:gap-6`}
           onKeyDown={(e) => e.key === 'Escape' && setMenuOpen(false)}
         >
           <NavLinks toggleMenu={toggleMenu} />
@@ -51,7 +51,7 @@ function NavBar() {
       {/* Overlay */}
       {menuOpen && (
         <div
-          className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50 z-30 md:hidden"
+          className="absolute top-0 left-0 h-full w-full z-30 md:hidden"
           onClick={toggleMenu}
           aria-hidden={!menuOpen}
         ></div>
