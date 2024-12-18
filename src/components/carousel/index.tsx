@@ -98,7 +98,7 @@ const Carousel = () => {
 
   return (
     <div className="carousel max-w-full mx-auto my-8">
-      <div className="carousel-images relative overflow-hidden">
+      <div className="carousel-images relative overflow-hidden ">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
