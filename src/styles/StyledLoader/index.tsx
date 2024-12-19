@@ -29,11 +29,11 @@ const prixClipFix = keyframes`
 `;
 // Styled Component for Loader Container
 export const LoaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100vh !important;
+  width: 100vw !important;
 `;
 
 // Styled Component for Loader

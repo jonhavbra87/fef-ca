@@ -1,79 +1,98 @@
-import { FaInstagram, FaSnapchat, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaSnapchat, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import Logo from '../../assets/eCom_logo.svg';
 
 function Footer() {
   return (
-    <footer className="bg-neutralSecondary p-5 text-neutral w-full static mt-16">
-      <div className="flex flex-col md:flex-row md:justify-between items-center gap-8 md:gap-0">
-        {/* Left Section: Logo */}
-        <div className="mx-auto max-w-48">
-          <img src={Logo} alt="eCom Logo" className="" />
-        </div>
-
-        {/* Right Section: Newsletter Signup and Social Media */}
-        <div className="flex flex-col items-center  justify-start md:items-end gap-4 w-full md:w-auto">
-          {/* Newsletter Form */}
-          <form
-            id="newsletterForm"
-            className="flex flex-col md:flex-row items-center gap-4"
-            action="/newslettersuccess/index.html"
-            method="GET"
-          >
-            <label className="uppercase semi-bold">
-            
-              <input
-                type="email"
-                name="email"
-                className="rounded-md border border-neutral p-2 ml-2 focus:border focus:ring-1 focus:ring-primary focus:outline-none transition duration-300"
-                id="emailSignup"
-                placeholder="Newsletter signup"
-                required
-              />
-            </label>
-            <input
-              type="submit"
-              className="bg-cta text-white px-4 py-2 rounded-md cursor-pointer hover:bg-opacity-80 transition duration-300 uppercase"
-              value="Abonner"
-            />
-          </form>
-         
-
-          {/* Follow Us Section */}
-          <div className="flex flex-col items-center mx-auto md:items-start gap-2">
-            <h3 className="text-lg">Follow us:</h3>
-            <div className="flex gap-4 text-3xl">
-              {/* Using react-icons for social media icons */}
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-secondary transition-colors duration-300"
-              >
-                <FaInstagram />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-secondary transition-colors duration-300"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://www.snapchat.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-secondary transition-colors duration-300"
-              >
-                <FaSnapchat />
-              </a>
-            </div>
-            <address className="text-sm not-italic mt-2">
-              Infinite ground 11, 1337 SPACE
-            </address>
+    <footer className="bg-neutralSecondary py-10 px-6 w-full mt-16">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Logo and "Navigation" */}
+        <div className="flex flex-col items-center md:items-start">
+          <div className="flex items-center gap-4">
+            <img src={Logo} alt="eComSite Logo" className="h-10 w-auto" />
+            <span className="text-lg font-bold text-neutral">eComSite</span>
+          </div>
+          <ul className="mt-4 space-y-2 text-sm text-neutral">
+            <li><a href="#" className="hover:text-primary transition">Products & Services</a></li>
+            <li><a href="#" className="hover:text-primary transition">Resources</a></li>
+            <li><a href="#" className="hover:text-primary transition">Contact</a></li>
+            <li><a href="#" className="hover:text-primary transition">About</a></li>
+          </ul>
+          <div className="flex gap-4 text-lg my-4">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-opacity-60 transition"
+              aria-label="Visit our Instagram page"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-opacity-60 transition"
+              aria-label="Visit our Twitter page"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-opacity-60 transition"
+              aria-label="Visit our LinkedIn page"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://www.snapchat.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-opacity-60 transition"
+              aria-label="Visit our Snapchat page"
+            >
+              <FaSnapchat />
+            </a>
           </div>
         </div>
+
+        {/* Newsletter */}
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-lg font-semibold text-neutral">Join Our Newsletter</h3>
+          <p className="text-sm text-neutral mt-2">
+            Be the first to know about our latest updates, exclusive offers, and more.
+          </p>
+          <form
+            action="/"
+            method="GET"
+            className="flex flex-col md:flex-row items-center mt-4 gap-4 w-full"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              className="flex-grow rounded-md border border-neutral p-2 focus:ring-primary focus:outline-none"
+            />
+            <input
+              type="submit"
+              value="Subscribe"
+              className="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-80 transition"
+            />
+          </form>
+        </div>
+
+        {/* Legal Info */}
       </div>
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 mt-8 gap-8 text-sm text-neutral border-t-2 border-gray-300 ">
+          <ul className="flex justify-center md:justify-start items-center md:items-start gap-x-4 mt-4 ">
+            <li><a href="#" className="hover:text-primary transition">English</a></li>
+            <li><a href="#" className="hover:text-primary transition">Privacy</a></li>
+            <li><a href="#" className="hover:text-primary transition">Legal</a></li>
+          </ul>
+          <p className="flex justify-center md:justify-end items-center mt-4">&copy; 2023 eComSite. All Rights Reserved.</p>
+        </div>
     </footer>
   );
 }
