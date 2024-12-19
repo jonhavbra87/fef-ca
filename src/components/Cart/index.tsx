@@ -13,7 +13,7 @@ function Cart() {
   return (
     <div
       className={`relative text-2xl cursor-pointer transition-colors duration-300 ${
-        count > 0 ? 'text-cta' : 'text-card'
+        count > 0 ? 'text-cta hover:text-opacity-60' : 'text-neutralSecondary hover:text-secondary'
       }`}
       aria-label={`Cart with ${count} item${count === 1 ? '' : 's'}`}
       onClick={handleClick}

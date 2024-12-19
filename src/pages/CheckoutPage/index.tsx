@@ -12,7 +12,7 @@ type FormData = {
   firstName: string;
   lastName: string;
   address: string;
-  postcode: string;
+  postcode: number;
   country: string;
   email: string;
   paymentMethod: string;
@@ -27,7 +27,7 @@ function CheckoutPage() {
     (total, item) => total + item.discountedPrice,
     0
   );
-  const shippingCost = 8; // Eksempelverdi
+  const shippingCost = 8; // Standard shipping cost
 
   const {
     register,
@@ -81,11 +81,11 @@ function CheckoutPage() {
               {...register('firstName', {
                 required: 'Please enter your first name',
                 minLength: {
-                  value: 2,
-                  message: 'Your first name should be at least 2 characters',
+                  value: 3,
+                  message: 'Your first name should be at least 3 characters',
                 },
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
             />
             {errors.firstName && (
               <p className="mt-1 text-sm text-red-600">
@@ -103,11 +103,11 @@ function CheckoutPage() {
               {...register('lastName', {
                 required: 'Please enter your last name',
                 minLength: {
-                  value: 2,
-                  message: 'Your last name should be at least 2 characters',
+                  value: 3,
+                  message: 'Your last name should be at least 3 characters',
                 },
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
             />
             {errors.lastName && (
               <p className="mt-1 text-sm text-red-600">
@@ -126,11 +126,11 @@ function CheckoutPage() {
             {...register('address', {
               required: 'Please enter your address',
               minLength: {
-                value: 5,
-                message: 'Your address should be at least 5 characters',
+                value: 3,
+                message: 'Your address should be at least 3 characters',
               },
             })}
-            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
+            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
           />
           {errors.address && (
             <p className="mt-1 text-sm text-red-600">
@@ -140,27 +140,30 @@ function CheckoutPage() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-          <div className="flex flex-col">
-            <label htmlFor="postcode" className="mb-1 font-semibold text-lg">
-              Postcode
-            </label>
-            <input
-              id="postcode"
-              {...register('postcode', {
-                required: 'Please enter your postcode',
-                minLength: {
-                  value: 4,
-                  message: 'Your postcode should be at least 4 characters',
-                },
-              })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
-            />
-            {errors.postcode && (
-              <p className="mt-1 text-sm text-red-600">
-                {errors.postcode.message}
-              </p>
-            )}
-          </div>
+        <div className="flex flex-col">
+  <label htmlFor="postcode" className="mb-1 font-semibold text-lg">
+    Postcode
+  </label>
+  <input
+    id="postcode"
+    {...register('postcode', {
+      required: 'Please enter your postcode',
+      pattern: {
+        value: /^[0-9]+$/, // RegExp for numeric values
+        message: 'Postcode must be numeric',
+      },
+      minLength: {
+        value: 4,
+        message: 'Your postcode should be at least 4 digits',
+      },
+    })}
+    className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
+  />
+  {errors.postcode && (
+    <p className="mt-1 text-sm text-red-600">{errors.postcode.message}</p>
+  )}
+</div>
+
 
           <div className="flex flex-col">
             <label htmlFor="country" className="mb-1 font-semibold text-lg">
@@ -171,7 +174,7 @@ function CheckoutPage() {
               {...register('country', {
                 required: 'Please enter your country',
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
             />
             {errors.country && (
               <p className="mt-1 text-sm text-red-600">
@@ -195,7 +198,7 @@ function CheckoutPage() {
                 message: 'Please enter a valid email address',
               },
             })}
-            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta"
+            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>

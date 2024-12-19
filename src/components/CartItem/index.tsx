@@ -67,7 +67,7 @@ const CartItem = ({ product }: { product: Product }) => {
             onClick={() => removeFromCart(product.id)}
             className="text-red-500 hover:text-red-700 transition-colors mt-4 md:mt-0 flex justify-end p-3"
           >
-            <MdDelete className="sm:text-lg md:text-xl" />
+            <MdDelete className="text-xl" />
           </button>
 
       </div>
