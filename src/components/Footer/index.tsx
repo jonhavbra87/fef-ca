@@ -3,15 +3,15 @@ import Logo from '../../assets/eCom_logo.svg';
 
 function Footer() {
   return (
-    <footer className="bg-primary p-5 text-white w-full static mt-16">
+    <footer className="bg-neutralSecondary p-5 text-neutral w-full static mt-16">
       <div className="flex flex-col md:flex-row md:justify-between items-center gap-8 md:gap-0">
         {/* Left Section: Logo */}
-        <div className="flex items-center justify-center h-auto">
-          <img src={Logo} alt="eCom Logo" className="h-12" />
+        <div className="mx-auto max-w-48">
+          <img src={Logo} alt="eCom Logo" className="" />
         </div>
 
         {/* Right Section: Newsletter Signup and Social Media */}
-        <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto">
+        <div className="flex flex-col items-center  justify-start md:items-end gap-4 w-full md:w-auto">
           {/* Newsletter Form */}
           <form
             id="newsletterForm"
@@ -19,14 +19,14 @@ function Footer() {
             action="/newslettersuccess/index.html"
             method="GET"
           >
-            <label className="uppercase">
-              Latest news?
+            <label className="uppercase semi-bold">
+            
               <input
                 type="email"
                 name="email"
-                className="rounded-md border border-cta p-2 ml-2"
+                className="rounded-md border border-neutral p-2 ml-2 focus:border focus:ring-1 focus:ring-primary focus:outline-none transition duration-300"
                 id="emailSignup"
-                placeholder="Email"
+                placeholder="Newsletter signup"
                 required
               />
             </label>
@@ -36,9 +36,10 @@ function Footer() {
               value="Abonner"
             />
           </form>
+         
 
           {/* Follow Us Section */}
-          <div className="flex flex-col items-center md:items-end gap-2">
+          <div className="flex flex-col items-center mx-auto md:items-start gap-2">
             <h3 className="text-lg">Follow us:</h3>
             <div className="flex gap-4 text-3xl">
               {/* Using react-icons for social media icons */}
