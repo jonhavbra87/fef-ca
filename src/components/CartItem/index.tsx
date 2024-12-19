@@ -46,7 +46,7 @@ const CartItem = ({ product }: { product: Product }) => {
           <div className="flex items-center gap-2 ">
             <button
               onClick={decrementQuantity}
-              className="bg-neutralSecondary text-white px-2 py-1 rounded-lg hover:bg-red-700 transition-colors"
+              className="bg-neutralSecondary text-neutral px-2 py-1 rounded-lg hover:bg-red-700 transition-colors"
             >
               -
             </button>

@@ -24,7 +24,7 @@ function NavBar() {
         {/* Hamburger/lukk-knapp */}
         <div>
           <button
-            className={`text-hover text-2xl md:hidden transition-transform duration-500 ${
+            className={`text-hover text-2xl md:hidden transition-transform duration-500 text-neutralSecondary ${
               menuOpen ? 'rotate-90' : 'rotate-0'
             }`}
             onClick={toggleMenu}
