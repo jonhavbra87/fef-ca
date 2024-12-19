@@ -85,7 +85,7 @@ function CheckoutPage() {
                   message: 'Your first name should be at least 3 characters',
                 },
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
             />
             {errors.firstName && (
               <p className="mt-1 text-sm text-red-600">
@@ -107,7 +107,7 @@ function CheckoutPage() {
                   message: 'Your last name should be at least 3 characters',
                 },
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
             />
             {errors.lastName && (
               <p className="mt-1 text-sm text-red-600">
@@ -130,7 +130,7 @@ function CheckoutPage() {
                 message: 'Your address should be at least 3 characters',
               },
             })}
-            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
+            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
           />
           {errors.address && (
             <p className="mt-1 text-sm text-red-600">
@@ -157,7 +157,7 @@ function CheckoutPage() {
         message: 'Your postcode should be at least 4 digits',
       },
     })}
-    className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
+    className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
   />
   {errors.postcode && (
     <p className="mt-1 text-sm text-red-600">{errors.postcode.message}</p>
@@ -174,7 +174,7 @@ function CheckoutPage() {
               {...register('country', {
                 required: 'Please enter your country',
               })}
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
             />
             {errors.country && (
               <p className="mt-1 text-sm text-red-600">
@@ -198,7 +198,7 @@ function CheckoutPage() {
                 message: 'Please enter a valid email address',
               },
             })}
-            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-neutralSecondary"
+            className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
