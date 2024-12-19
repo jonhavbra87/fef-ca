@@ -63,7 +63,7 @@ function Contact() {
     <div>
       <GradientHeading>Contact Us</GradientHeading>
       <form
-        className="flex flex-col gap-6 p-8 max-w-xl mx-auto bg-navigation rounded-lg shadow-md 
+        className="flex flex-col gap-6 p-8 max-w-xl mx-auto bg-primary rounded-lg shadow-md 
                 md:max-w-2xl lg:max-w-3xl lg:p-10 xl:max-w-4xl xl:p-12"
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -71,18 +71,18 @@ function Contact() {
           <div className="flex flex-col">
             <label
               htmlFor="firstName"
-              className="mb-1 font-semibold text-background text-lg lg:text-xl"
+              className="mb-1 font-semibold text-base text-lg lg:text-xl"
             >
               First Name
             </label>
             <input
               id="firstName"
-              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta 
-                      transition-all duration-300 ease-in-out lg:p-5"
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary 
+                      transition-all duration-300 ease-in-out lg:p-5 "
               {...register('firstName')}
             />
             {errors.firstName && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-red-400">
                 {errors.firstName.message}
               </p>
             )}
@@ -91,18 +91,18 @@ function Contact() {
           <div className="flex flex-col">
             <label
               htmlFor="lastName"
-              className="mb-1 font-semibold text-background text-lg lg:text-xl"
+              className="mb-1 font-semibold text-base text-lg lg:text-xl"
             >
               Last Name
             </label>
             <input
               id="lastName"
-              className="border text-black border-gray-300 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta
+              className="border text-black border-gray-300 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary
                       transition-all duration-300 ease-in-out lg:p-5"
               {...register('lastName')}
             />
             {errors.lastName && (
-              <p className="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-red-400">
                 {errors.lastName.message}
               </p>
             )}
@@ -112,37 +112,37 @@ function Contact() {
         <div className="flex flex-col">
           <label
             htmlFor="email"
-            className="mb-1 font-semibold text-background text-lg lg:text-xl"
+            className="mb-1 font-semibold text-base text-lg lg:text-xl"
           >
             Email
           </label>
           <input
             id="email"
             type="email"
-            className="border text-black border-gray-300 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta
+            className="border text-black border-gray-300 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary
                     transition-all duration-300 ease-in-out lg:p-5"
             {...register('email')}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
           )}
         </div>
 
         <div className="flex flex-col">
           <label
             htmlFor="body"
-            className="mb-1 font-semibold text-background text-lg lg:text-xl"
+            className="mb-1 font-semibold text-base text-lg lg:text-xl"
           >
             Message
           </label>
           <textarea
             id="body"
-            className="border text-black border-gray-300 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-cta 
+            className="border text-black border-gray-300 p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary 
                     transition-all duration-300 ease-in-out resize-none lg:p-5 lg:h-40"
             {...register('body')}
           />
           {errors.body && (
-            <p className="mt-1 text-sm text-red-600">{errors.body.message}</p>
+            <p className="mt-1 text-sm text-red-400">{errors.body.message}</p>
           )}
         </div>
 

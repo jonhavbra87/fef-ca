@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        navigation: '#423736',
-        cta: '#987185',
+        cta: '#D72638',
         background: '#F4E2D1',
-        primary: '#423736',
-        secondary: '#987185',
-        card: '#E9D5B7',
-        hover: '#D6AA9F',
+        primary: '#1A202C',
+        secondary: '#FFC857',
+        base: '#F7F7F7',
+        neutral: '#4A4A4A',
+        neutralSecondary: '#E2E8F0',
       },
       keyframes: {
         'slide-down': {

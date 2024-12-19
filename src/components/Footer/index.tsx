@@ -3,7 +3,7 @@ import Logo from '../../assets/eCom_logo.svg';
 
 function Footer() {
   return (
-    <footer className="bg-navigation p-5 text-white w-full static">
+    <footer className="bg-primary p-5 text-white w-full static mt-16">
       <div className="flex flex-col md:flex-row md:justify-between items-center gap-8 md:gap-0">
         {/* Left Section: Logo */}
         <div className="flex items-center justify-center h-auto">

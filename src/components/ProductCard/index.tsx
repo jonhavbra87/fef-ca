@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 import { Product } from '../../types/product';
 import { ProductPrice } from '../ProductPrice';
-import { GradientButton } from '../../styles/GradientButton';
 import { FaCartArrowDown } from "react-icons/fa6";
 import useCartStore from '../../store/cartStore';
 import ProductRating from '../ProductRating';
 import ProductImage from '../ProductImage';
+import { CardButton } from '../../styles/CartButton';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   // Zustand store to add product to cart
   const { addToCart } = useCartStore();
   return (
-    <li className="bg-card rounded-lg shadow-md border border-accent hover:shadow-lg transition-shadow">
+    <li className="bg-base rounded-lg shadow-md border border-accent hover:shadow-lg transition-shadow">
       {/* Content that wraps product image and text */}
       <Link to={`/product/${product.id}`} className="block">
         <ProductImage
@@ -36,7 +36,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
           >
             <FaCartArrowDown />
           </button>
-          <GradientButton>View product</GradientButton>
+          <CardButton>View product</CardButton>
         </div>
       </Link>
     </li>

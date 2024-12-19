@@ -19,15 +19,15 @@ function CheckoutSuccess() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen px-4 bg-background text-center">
+    <div className="flex flex-col items-center justify-center h-dvh mt-6 px-4 rounded-md bg-neutral text-center">
       {/* Overskrift */}
-      <LuPartyPopper className="text-7xl md:text-9xl text-green-500 mb-4 animate-bounce" />
-      <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+      <LuPartyPopper className="text-7xl md:text-9xl text-secondary mb-4 animate-bounce" />
+      <h1 className="text-3xl md:text-5xl font-bold text-neutralSecondary mb-4">
         Order Successful!
       </h1>
 
       {/* Beskrivelse */}
-      <p className="text-lg md:text-xl text-gray-600 mb-6">
+      <p className="text-lg md:text-xl text-neutralSecondary text-opacity-80 mb-6">
         Thank you for your purchase. Your order has been placed successfully.
       </p>
  {/* Ekstra Info */}
@@ -36,7 +36,7 @@ function CheckoutSuccess() {
         <ul className="text-gray-600 space-y-5 text-start lg:text-lg">
           <li>
             <span className="font-medium text-gray-800">📋 Order Number:</span>
-            <span className="ml-2 text-emerald-500 font-bold">{orderNumber}</span>
+            <span className="ml-2 text-neutral font-bold">{orderNumber}</span>
           </li>
           <li>
             <span className="font-medium text-gray-800">💳 Payment:</span>
