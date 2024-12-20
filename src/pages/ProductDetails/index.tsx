@@ -33,7 +33,6 @@ function ProductDetails() {
     return <div>Error loading product details.</div>;
   }
 
-  console.log('data from productdetail', product);
 
   return (
     <div className="">

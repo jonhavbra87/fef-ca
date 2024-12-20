@@ -7,7 +7,6 @@ import ProductDetails from './pages/ProductDetails';
 import Contact from './pages/Contact';
 import CartPage from './pages/CartPage';
 import NotFound from './pages/NotFound';
-//import CheckoutSuccess from './pages/CheckoutSuccess';
 import CheckoutPage from './pages/CheckoutPage';
 import CheckoutSuccess from './pages/CheckoutSuccess';
 

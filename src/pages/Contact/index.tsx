@@ -36,10 +36,7 @@ const schema = yup
 // Bruker `yup.InferType` for å automatisk hente ut typene fra schema
 type FormData = yup.InferType<typeof schema>;
 
-/* interface FormData {
-  firstName: string;
-  age: number;
-} */
+
 
 function Contact() {
   const {

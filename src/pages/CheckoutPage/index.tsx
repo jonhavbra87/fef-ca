@@ -39,8 +39,6 @@ function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data: FormData) => {
-    console.log('Form submitted');
-    console.log('Errors:', errors);
     setIsSubmitting(true);
 
     const orderDetails = {
