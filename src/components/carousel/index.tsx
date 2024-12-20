@@ -111,6 +111,7 @@ const Carousel = () => {
             {/* Image */}
             <motion.img
               src={randomProducts[currentIndex].image.url}
+              alt={randomProducts[currentIndex].image.alt || 'Product Image'}
               className="w-full h-96 object-cover rounded-lg"
             />
 
