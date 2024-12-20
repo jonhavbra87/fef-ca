@@ -3,18 +3,23 @@ import { Product } from '../../types/product';
 export const ProductPrice = ({ product }: { product: Product }) => {
   const hasDiscount = product.price !== product.discountedPrice;
 
+
   return (
-    <div className="flex gap-2 items-center">
-      <span
-        className={`${hasDiscount ? 'line-through text-cta text-opacity-75' : 'text-neutral'}`}
-      >
+    <div className="flex flex-col gap-2 items-start">
+      {/* Show original price with strikethrough if discounted */}
+      <span className={`text-sm ${hasDiscount ? 'line-through text-gray-500' : 'text-primary text-xl'}`}>
         ${product.price.toFixed(2)}
       </span>
+      {/* Show discounted price */}
       {hasDiscount && (
-        <span className="text-font-semibold text-primary font-semibold">
-          ${product.discountedPrice.toFixed(2)}
+        <span className="font-semibold text-xl text-green-600">
+          {product.discountedPrice.toFixed(2)} kr 
+
         </span>
       )}
+
     </div>
   );
 };
+
+export default ProductPrice;
