@@ -26,8 +26,6 @@ function useApi<T>(url: string) {
 
     getData();
   }, [url]);
-  //console.log('apicall', data);
-  //console.log('apipage url', url);
 
   return { data, isLoading, isError };
 }
