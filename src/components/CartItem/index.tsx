@@ -70,6 +70,7 @@ const CartItem = ({ product }: { product: Product }) => {
         <button
           onClick={() => removeFromCart(product.id)}
           className="text-red-500 hover:text-red-700 transition-colors mt-4 md:mt-0 flex justify-end p-3"
+          aria-label={`Delete product ${product.title}`}
         >
           <MdDelete className="text-xl" />
         </button>
