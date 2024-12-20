@@ -87,11 +87,11 @@ function Footer() {
             method="GET"
             className="flex flex-col md:flex-row items-center mt-4 gap-4 w-full"
           >
-            <label htmlFor="email" className="sr-only">
+            <label htmlFor="footer-email" className="sr-only">
               Email address
             </label>
             <input
-              id="email"
+              id="footer-email"
               type="email"
               name="email"
               placeholder="Enter your email"

@@ -59,19 +59,29 @@ function CartPage() {
         </div>
       </div>
 
-      {/* Kupongkode */}
-      <div className="flex mb-3">
-        <input
-          type="text"
-          value={couponCode}
-          onChange={handleCouponChange}
-          placeholder="Enter Coupon Code"
-          className="rounded-s-md grow border border-neutral text-primary p-2"
-        />
-        <button className="rounded-e-md bg-neutral w-auto text-2xl text-white text-bold p-3 hover:bg-secondary hover:bg-opacity-60 transition duration-300">
-          <IoAdd />
-        </button>
-      </div>
+      {/* Cupon code */}
+      <div className="flex flex-col mb-3">
+  <label htmlFor="couponCode" className="text-sm font-medium text-gray-600 mb-1">
+    Coupon Code
+  </label>
+  <div className="flex">
+    <input
+      id="couponCode"
+      type="text"
+      value={couponCode}
+      onChange={handleCouponChange}
+      placeholder="Enter Coupon Code"
+      className="rounded-s-md grow border border-neutral text-primary p-2"
+    />
+    <button
+      aria-label={`Add coupon code: ${couponCode || 'empty'}`}
+      className="rounded-e-md bg-neutral w-auto text-2xl text-white font-bold p-3 hover:bg-secondary hover:bg-opacity-80 transition duration-300"
+    >
+      <IoAdd />
+    </button>
+  </div>
+</div>
+
 
       {/* Place Order Button */}
       <div className="mt-8 flex justify-center">
