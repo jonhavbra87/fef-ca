@@ -19,7 +19,12 @@ function SearchBar({ onSearch }: SearchBarProps) {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex" role="search" aria-label="Search">
+    <form
+      onSubmit={handleSearch}
+      className="flex"
+      role="search"
+      aria-label="Search"
+    >
       <label htmlFor="searchInput" className="sr-only">
         Search for products
       </label>

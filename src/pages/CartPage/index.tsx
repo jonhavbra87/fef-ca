@@ -73,16 +73,11 @@ function CartPage() {
         </button>
       </div>
 
- {/* Place Order Button */}
+      {/* Place Order Button */}
       <div className="mt-8 flex justify-center">
         <GradientButton
           onClick={handlePlaceOrder}
           disabled={items.length === 0} // Deactivate button if cart is empty
-          className={`px-6 py-3 font-semibold text-white rounded-lg transition-all ${
-            items.length > 0
-              ? 'bg-green-500 hover:bg-green-600'
-              : 'bg-gray-400 cursor-not-allowed'
-          }`}
         >
           Place Order
         </GradientButton>

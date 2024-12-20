@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Product } from '../../types/product';
 import { ProductPrice } from '../ProductPrice';
-import { FaCartArrowDown } from "react-icons/fa6";
+import { FaCartArrowDown } from 'react-icons/fa6';
 import useCartStore from '../../store/cartStore';
 import ProductRating from '../ProductRating';
 import ProductImage from '../ProductImage';
@@ -21,7 +21,10 @@ export const ProductCard = ({ product }: { product: Product }) => {
       {/* Discount Sticker */}
       {product.price !== product.discountedPrice && (
         <span className="absolute top-3 left-3 bg-black bg-opacity-80  text-white text-xs px-3 py-2 rounded-lg font-bold z-10">
-          {Math.round(((product.price - product.discountedPrice) / product.price) * 100)}% OFF
+          {Math.round(
+            ((product.price - product.discountedPrice) / product.price) * 100
+          )}
+          % OFF
         </span>
       )}
 
@@ -42,7 +45,9 @@ export const ProductCard = ({ product }: { product: Product }) => {
       {/* Product Details */}
       <div className="p-4 flex flex-col gap-2">
         <h2 className="text-lg font-bold text-gray-800">{product.title}</h2>
-        <p className="text-sm text-gray-600 line-clamp-2">{product.description}</p>
+        <p className="text-sm text-gray-600 line-clamp-2">
+          {product.description}
+        </p>
         <ProductPrice product={product} />
         <ProductRating rating={product.rating} />
       </div>
@@ -63,7 +68,10 @@ export const ProductCard = ({ product }: { product: Product }) => {
         </button>
 
         {/* View Product Button */}
-        <CardButton onClick={navigateToProduct} aria-label={`View product details for ${product.title}`}>
+        <CardButton
+          onClick={navigateToProduct}
+          aria-label={`View product details for ${product.title}`}
+        >
           View product
         </CardButton>
       </div>

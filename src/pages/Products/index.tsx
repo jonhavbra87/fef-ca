@@ -22,20 +22,19 @@ function Products() {
 
   const products = product;
 
+  // Control Loader display with a timeout
+  useEffect(() => {
+    if (!isLoading) {
+      const timeout = setTimeout(() => {
+        setShowLoader(false);
+      }, 1000); // Minimum 2 seconds
 
-    // Control Loader display with a timeout
-    useEffect(() => {
-      if (!isLoading) {
-        const timeout = setTimeout(() => {
-          setShowLoader(false);
-        }, 1000); // Minimum 2 seconds
-  
-        return () => clearTimeout(timeout); // Cleanup timeout
-      }
-    }, [isLoading]);
+      return () => clearTimeout(timeout); // Cleanup timeout
+    }
+  }, [isLoading]);
 
   // Show loading message if `isLoading` is `true`
-  if (isLoading  || showLoader) {
+  if (isLoading || showLoader) {
     return <Loader />;
   }
 
@@ -54,7 +53,6 @@ function Products() {
   const handleSearch = (query: string) => {
     setSearchTerm(query);
   };
-
 
   return (
     <div>

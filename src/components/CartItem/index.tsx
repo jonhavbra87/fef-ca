@@ -34,7 +34,9 @@ const CartItem = ({ product }: { product: Product }) => {
 
         {/* Product Details */}
         <div className="flex-grow px-1 flex flex-col justify-center">
-          <h2 className="text-lg font-bold text-primary mb-2">{product.title}</h2>
+          <h2 className="text-lg font-bold text-primary mb-2">
+            {product.title}
+          </h2>
           <p className="text-sm text-neutral mb-2 line-clamp-1">
             {product.description}
           </p>
@@ -50,7 +52,9 @@ const CartItem = ({ product }: { product: Product }) => {
             >
               -
             </button>
-            <span className="text-primary font-bold">{product.quantity || 1}</span>
+            <span className="text-primary font-bold">
+              {product.quantity || 1}
+            </span>
             <button
               onClick={incrementQuantity}
               className="bg-neutral text-white px-2 py-1 rounded-lg hover:bg-green-600 transition-colors"
@@ -63,13 +67,12 @@ const CartItem = ({ product }: { product: Product }) => {
             {(product.discountedPrice * (product.quantity || 1)).toFixed(2)} kr
           </div>
         </div>
-          <button
-            onClick={() => removeFromCart(product.id)}
-            className="text-red-500 hover:text-red-700 transition-colors mt-4 md:mt-0 flex justify-end p-3"
-          >
-            <MdDelete className="text-xl" />
-          </button>
-
+        <button
+          onClick={() => removeFromCart(product.id)}
+          className="text-red-500 hover:text-red-700 transition-colors mt-4 md:mt-0 flex justify-end p-3"
+        >
+          <MdDelete className="text-xl" />
+        </button>
       </div>
     </ul>
   );

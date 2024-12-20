@@ -43,7 +43,7 @@ export const GradientButton = styled.button`
     left: -100px;
     animation: ${shine} 3s infinite linear; /* Kobler animasjonen */
   }
-     /* Style for disabled condition */
+  /* Style for disabled condition */
   &:disabled {
     background: #d4d4d4; /* Grå bakgrunn for deaktivert knapp */
     color: #a0a0a0; /* Lysere tekstfarge */
@@ -55,4 +55,3 @@ export const GradientButton = styled.button`
     display: none; /* Fjerner shine-effekten når knappen er deaktivert */
   }
 `;
-

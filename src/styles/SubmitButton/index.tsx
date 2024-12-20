@@ -10,10 +10,16 @@ export const SubmitButton = styled.button`
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
-    background: linear-gradient(90deg, #218838, #1e7e34); /* Mørkere grønn på hover */
+    background: linear-gradient(
+      90deg,
+      #218838,
+      #1e7e34
+    ); /* Mørkere grønn på hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Legger til en subtil skygge */
   }
 

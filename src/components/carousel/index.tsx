@@ -136,7 +136,9 @@ const Carousel = () => {
           <motion.div
             key={index}
             className={`dot w-3 h-3 rounded-full ${
-              currentIndex === index ? 'bg-primary' : 'bg-secondary bg-opacity-50'
+              currentIndex === index
+                ? 'bg-primary'
+                : 'bg-secondary bg-opacity-50'
             }`}
             onClick={() => handleDotClick(index)}
             initial="initial"

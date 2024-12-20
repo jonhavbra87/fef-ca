@@ -9,11 +9,13 @@ function Cart() {
   function handleClick() {
     navigate('/cart/');
   }
-  
+
   return (
     <div
       className={`relative text-2xl cursor-pointer transition-colors duration-300 ${
-        count > 0 ? 'text-secondary hover:text-opacity-60' : 'text-neutralSecondary hover:text-opacity-60'
+        count > 0
+          ? 'text-secondary hover:text-opacity-60'
+          : 'text-neutralSecondary hover:text-opacity-60'
       }`}
       aria-label={`Cart with ${count} item${count === 1 ? '' : 's'}`}
       onClick={handleClick}

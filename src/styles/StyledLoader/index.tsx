@@ -51,12 +51,12 @@ export const StyledLoader = styled.div`
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid #FFC857;
+    border: 5px solid #ffc857;
     animation: ${prixClipFix} 2s linear infinite;
   }
 
   &::after {
-    border-color: #1A202C;
+    border-color: #1a202c;
     animation:
       ${prixClipFix} 2s linear infinite,
       ${rotate} 0.5s linear infinite reverse;

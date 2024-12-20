@@ -12,10 +12,9 @@ function Header() {
           <img src={Logo} alt="eCom logo" className="h-14" />
         </Link>
       </div>
-      <div className='flex flex-row gap-3 items-center'>
-      <Cart />
-      <NavBar />
-
+      <div className="flex flex-row gap-3 items-center">
+        <Cart />
+        <NavBar />
       </div>
       {/* Right: Navbar and Cart */}
     </header>
