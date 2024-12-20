@@ -55,7 +55,6 @@ function Products() {
     setSearchTerm(query);
   };
 
-  console.log('products from product page', products);
 
   return (
     <div>
