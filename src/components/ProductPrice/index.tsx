@@ -8,11 +8,11 @@ export const ProductPrice = ({ product }: { product: Product }) => {
     <div className="flex flex-col gap-2 items-start">
       {/* Show original price with strikethrough if discounted */}
       <span className={`text-sm ${hasDiscount ? 'line-through text-gray-500' : 'text-primary text-xl'}`}>
-        ${product.price.toFixed(2)}
+        {product.price.toFixed(2)} kr
       </span>
       {/* Show discounted price */}
       {hasDiscount && (
-        <span className="font-semibold text-xl text-green-600">
+        <span className="font-semibold text-xl text-darkGreen">
           {product.discountedPrice.toFixed(2)} kr 
 
         </span>

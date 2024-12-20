@@ -20,7 +20,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
     <li className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow relative">
       {/* Discount Sticker */}
       {product.price !== product.discountedPrice && (
-        <span className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded-full font-bold z-10">
+        <span className="absolute top-3 left-3 bg-black bg-opacity-80  text-white text-xs px-3 py-2 rounded-lg font-bold z-10">
           {Math.round(((product.price - product.discountedPrice) / product.price) * 100)}% OFF
         </span>
       )}

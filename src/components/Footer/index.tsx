@@ -64,23 +64,29 @@ function Footer() {
             Be the first to know about our latest updates, exclusive offers, and more.
           </p>
           <form
-            action="/"
-            method="GET"
-            className="flex flex-col md:flex-row items-center mt-4 gap-4 w-full"
-          >
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              className="flex-grow rounded-md border border-neutral p-2 focus:ring-primary focus:outline-none"
-            />
-            <input
-              type="submit"
-              value="Subscribe"
-              className="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-80 transition"
-            />
-          </form>
+  action="/"
+  method="GET"
+  className="flex flex-col md:flex-row items-center mt-4 gap-4 w-full"
+>
+  <label htmlFor="email" className="sr-only">
+    Email address
+  </label>
+  <input
+    id="email"
+    type="email"
+    name="email"
+    placeholder="Enter your email"
+    required
+    className="flex-grow rounded-md border border-neutral p-2 focus:ring-primary focus:outline-none"
+  />
+  <button
+    type="submit"
+    className="bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-80 transition"
+  >
+    Subscribe
+  </button>
+</form>
+
         </div>
 
         {/* Legal Info */}
