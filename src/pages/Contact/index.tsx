@@ -2,11 +2,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import GradientHeading from '../../styles/GradientHeading';
-import { GradientButton } from '../../styles/GradientButton';
+import { SubmitButton } from '../../styles/SubmitButton';
 
-//import { FormData } from '../../types/FormData'
-
-// Valideringsskjema ved bruk av Yup
+// Validationg schema with yup
 const schema = yup
   .object({
     firstName: yup
@@ -146,9 +144,9 @@ function Contact() {
           )}
         </div>
 
-        <GradientButton type="submit" className="mt-6 py-6 w-full self-center ">
+        <SubmitButton type="submit" className="mt-6 py-6 w-full self-center ">
           Submit
-        </GradientButton>
+        </SubmitButton>
       </form>
     </div>
   );

@@ -6,10 +6,12 @@ export default {
     extend: {
       colors: {
         cta: '#D72638',
+        cta2: '#28a745',
         background: '#F4E2D1',
         primary: '#1A202C',
         secondary: '#FFC857',
         base: '#F7F7F7',
+        darkGreen: '#065F46',
         neutral: '#4A4A4A',
         neutralSecondary: '#E2E8F0',
       },

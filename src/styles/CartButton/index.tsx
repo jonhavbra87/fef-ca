@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardButton = styled.button`
-  background: linear-gradient(50deg, #D72638, #F6606D, #4A4A4A);
+  background: linear-gradient(50deg, #d72638, #f6606d, #4a4a4a);
   color: #fff;
   padding: 12px 24px;
   font-weight: bold;

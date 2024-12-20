@@ -140,30 +140,31 @@ function CheckoutPage() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-        <div className="flex flex-col">
-  <label htmlFor="postcode" className="mb-1 font-semibold text-lg">
-    Postcode
-  </label>
-  <input
-    id="postcode"
-    {...register('postcode', {
-      required: 'Please enter your postcode',
-      pattern: {
-        value: /^[0-9]+$/, // RegExp for numeric values
-        message: 'Postcode must be numeric',
-      },
-      minLength: {
-        value: 4,
-        message: 'Your postcode should be at least 4 digits',
-      },
-    })}
-    className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-  />
-  {errors.postcode && (
-    <p className="mt-1 text-sm text-red-600">{errors.postcode.message}</p>
-  )}
-</div>
-
+          <div className="flex flex-col">
+            <label htmlFor="postcode" className="mb-1 font-semibold text-lg">
+              Postcode
+            </label>
+            <input
+              id="postcode"
+              {...register('postcode', {
+                required: 'Please enter your postcode',
+                pattern: {
+                  value: /^[0-9]+$/, // RegExp for numeric values
+                  message: 'Postcode must be numeric',
+                },
+                minLength: {
+                  value: 4,
+                  message: 'Your postcode should be at least 4 digits',
+                },
+              })}
+              className="border text-black p-4 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+            {errors.postcode && (
+              <p className="mt-1 text-sm text-red-600">
+                {errors.postcode.message}
+              </p>
+            )}
+          </div>
 
           <div className="flex flex-col">
             <label htmlFor="country" className="mb-1 font-semibold text-lg">

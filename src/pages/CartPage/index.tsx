@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CartItem from '../../components/CartItem';
 import useCartStore from '../../store/cartStore';
 import { GradientButton } from '../../styles/GradientButton';
@@ -9,10 +9,19 @@ import GradientHeading from '../../styles/GradientHeading';
 function CartPage() {
   const { items, total, clearCart } = useCartStore(); // Bruker `total` fra store
   const [couponCode, setCouponCode] = useState('');
+  const navigate = useNavigate();
 
   const handleCouponChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setCouponCode(e.target.value);
-  const shippingCost = 8; // Eksempelverdi
+
+  const shippingCost = 99.99; // Eksempelverdi
+
+  const handlePlaceOrder = () => {
+    // Naviger til Checkout-siden
+    if (items.length > 0) {
+      navigate('/checkoutpage');
+    }
+  };
 
   return (
     <div className="mx-auto">
@@ -38,15 +47,15 @@ function CartPage() {
       <div className="border-t border-gray-300 pt-4 mb-6">
         <div className="flex justify-between mb-2">
           <span className="text-gray-600">Subtotal</span>
-          <span className="font-bold">${total.toFixed(2)}</span>
+          <span className="font-bold">{total.toFixed(2)} kr</span>
         </div>
         <div className="flex justify-between mb-2">
           <span className="text-gray-600">Shipping Cost</span>
-          <span className="font-bold">${shippingCost.toFixed(2)}</span>
+          <span className="font-bold">{shippingCost.toFixed(2)} kr</span>
         </div>
         <div className="flex justify-between text-lg font-bold mt-4">
           <span>Total</span>
-          <span>${(total + shippingCost).toFixed(2)}</span>
+          <span>{(total + shippingCost).toFixed(2)} kr</span>
         </div>
       </div>
 
@@ -64,10 +73,15 @@ function CartPage() {
         </button>
       </div>
 
-      {/* Checkout Button */}
-      <Link to="/checkoutpage">
-        <GradientButton>Place order</GradientButton>
-      </Link>
+      {/* Place Order Button */}
+      <div className="mt-8 flex justify-center">
+        <GradientButton
+          onClick={handlePlaceOrder}
+          disabled={items.length === 0} // Deactivate button if cart is empty
+        >
+          Place Order
+        </GradientButton>
+      </div>
     </div>
   );
 }

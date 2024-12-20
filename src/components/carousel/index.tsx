@@ -111,6 +111,7 @@ const Carousel = () => {
             {/* Image */}
             <motion.img
               src={randomProducts[currentIndex].image.url}
+              alt={randomProducts[currentIndex].image.alt || 'Product Image'}
               className="w-full h-96 object-cover rounded-lg"
             />
 
@@ -135,7 +136,9 @@ const Carousel = () => {
           <motion.div
             key={index}
             className={`dot w-3 h-3 rounded-full ${
-              currentIndex === index ? 'bg-primary' : 'bg-secondary bg-opacity-50'
+              currentIndex === index
+                ? 'bg-primary'
+                : 'bg-secondary bg-opacity-50'
             }`}
             onClick={() => handleDotClick(index)}
             initial="initial"
