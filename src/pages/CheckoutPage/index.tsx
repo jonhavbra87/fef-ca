@@ -51,7 +51,6 @@ function CheckoutPage() {
 
     // Simulate order submission
     setTimeout(() => {
-      alert('Your order has been placed successfully!');
       reset();
       clearCart();
       setIsSubmitting(false);
